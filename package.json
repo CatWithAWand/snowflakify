@@ -1,0 +1,85 @@
+{
+  "name": "snowflakify",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The most complete Snowflake ID generator in TypeScript",
+  "license": "MIT",
+  "author": {
+    "name": "Ariyuhna (CatWithAWand)",
+    "email": "cat.with.a.wand@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatWithAWand/snowflakify.git"
+  },
+  "homepage": "https://github.com/CatWithAWand/snowflakify#readme",
+  "bugs": "https://github.com/CatWithAWand/snowflakify/issues",
+  "keywords": [
+    "snowflakify",
+    "snowflake",
+    "snowflake-id",
+    "generator",
+    "custom",
+    "twitter",
+    "discord",
+    "typescript"
+  ],
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "directories": {
+    "lib": "dist",
+    "test": "test"
+  },
+  "files": [
+    "src",
+    "src/@types"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "prepare": "husky install",
+    "cm": "cz",
+    "cm:s": "cz -S",
+    "test": "jest",
+    "watch": "tsc -w",
+    "start": "node dist/index.js",
+    "lint": "prettier --check . && eslint src/**/*.ts",
+    "format": "prettier --write . && eslint src/**/*.ts --fix",
+    "build": "tsc",
+    "docs": "typedoc --excludeExternals --out docs src/**/*.ts",
+    "dev": "nodemon dist/index.js",
+    "dev:ts": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.7.0",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "global"
+    },
+    "husky": {
+      "hooks": {
+        "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+      }
+    }
+  }
+}
