@@ -7,8 +7,8 @@ export default class RandomFragment extends FragmentBase {
     super(bits);
 
     if (func && !['number', 'bigint'].includes(typeof func()))
-      throw new Error(
-        'RandomFragment custom function must return a number or bigint!',
+      throw new TypeError(
+        `[RND_FUNCTION_RETURN_TYPE]: RandomFragment custom function return is of type: ${typeof func()}; Expected number or bigint.`,
       );
   }
 
@@ -25,7 +25,7 @@ export default class RandomFragment extends FragmentBase {
     return rndNum - BigInt(1);
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

@@ -8,7 +8,7 @@ export default class SequenceFragment extends FragmentBase {
     return this.value;
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

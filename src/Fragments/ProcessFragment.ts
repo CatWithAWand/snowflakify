@@ -8,11 +8,13 @@ export default class ProcessFragment extends FragmentBase {
 
     if (value) {
       if (typeof value !== 'number')
-        throw new TypeError('ProcessFragment value must be a number!');
+        throw new TypeError(
+          '[VALUE_INVALID_TYPE]: ProcessFragment value must be a number.',
+        );
 
-      if (value > this.maxValue)
+      if (value < 0 || value > this.maxValue)
         throw new RangeError(
-          'ProcessFragment value must be less than or equal to 2 ** bits - 1',
+          '[VALUE_INVALID_RANGE]: ProcessFragment value must be within 0 and 2 ** bits - 1',
         );
 
       this.value = BigInt(value);
@@ -25,7 +27,7 @@ export default class ProcessFragment extends FragmentBase {
     return this.value;
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

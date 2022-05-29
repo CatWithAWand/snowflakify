@@ -8,11 +8,13 @@ export default class WorkerFragment extends FragmentBase {
 
     if (value) {
       if (typeof value !== 'number')
-        throw new TypeError('WorkerFragment value must be a number!');
+        throw new TypeError(
+          '[VALUE_INVALID_TYPE]: WorkerFragment value must be a number.',
+        );
 
-      if (value > this.maxValue)
+      if (value < 0 || value > this.maxValue)
         throw new RangeError(
-          'WorkerFragment value must be less than or equal to 2 ** bits - 1',
+          '[VALUE_INVALID_RANGE]: WorkerFragment value must be within 0 and 2 ** bits - 1',
         );
 
       this.value = BigInt(value);
@@ -26,7 +28,7 @@ export default class WorkerFragment extends FragmentBase {
     return this.value;
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

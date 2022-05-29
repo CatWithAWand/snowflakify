@@ -6,10 +6,10 @@ import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@type
 export default class Snowflakify {
   readonly totalBits: number;
 
-  protected fragments: FragmentArray;
+  readonly fragments: FragmentArray;
 
   constructor(options?: SnowflakifyOptions) {
-    this.resolveOptions(options);
+    this.fragments = Snowflakify.resolveOptions(options);
 
     this.totalBits = this.fragments.reduce(
       (acc, fragment) => acc + fragment.bits,
@@ -27,43 +27,14 @@ export default class Snowflakify {
     );
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment[] {
+  destructure(snowflake: number | bigint | string): DestructuredFragment[] {
+    // We do not need bigint precision when checking if a snowflake is valid
+    if (Number.isNaN(Number(snowflake)) || Number(snowflake) < 0)
+      throw new Error(
+        `[SNOWFLAKE_INVALID]: snowflake "${snowflake}" is invalid; Expected a number, bigint, or string of a positive number.`,
+      );
+
     return this.fragments.map((fragment) => fragment.destructure(snowflake));
-  }
-
-  private resolveOptions(options?: SnowflakifyOptions): void {
-    if (Array.isArray(options)) {
-      const fragmentTypes = options.map((fragment) => fragment.constructor.name);
-
-      if (
-        !['TimestampFragment', 'RandomFragment'].some((type) =>
-          fragmentTypes.includes(type),
-        )
-      )
-        throw new Error(
-          'A Snowflakify instance must have at least one TimestampFragment or RandomFragment!',
-        );
-
-      if (
-        fragmentTypes.includes('RandomFragment') &&
-        !['TimestampFragment', 'SequenceFragment'].some((type) =>
-          fragmentTypes.includes(type),
-        )
-      )
-        throw new Error(
-          'RandomFragment must be coupled with at least one TimestampFragment or SequenceFragment!',
-        );
-
-      this.fragments = options;
-    } else {
-      if (options?.epoch && (options.epoch < 0 || options.epoch > Date.now()))
-        throw new RangeError('Epoch must be between 0 and Date.now() at runtime!');
-
-      if (options?.preset && !['internal', 'ipv4', 'mac'].includes(options.preset))
-        throw new Error('Preset must be one of "internal", "ipv4" or "mac"!');
-
-      this.fragments = Options.defaultOptions(options);
-    }
   }
 
   private updateBitShiftsAndMasks(): void {
@@ -85,5 +56,47 @@ export default class Snowflakify {
 
     if (timestampFragment && sequenceFragment)
       timestampFragment.sequenceFragmentReference = sequenceFragment;
+  }
+
+  private static resolveOptions(options?: SnowflakifyOptions): FragmentArray {
+    if (typeof options !== 'undefined' && typeof options !== 'object')
+      throw new Error(
+        '[OPTIONS_INVALID]: Snowflakify options supplied are invalid.',
+      );
+
+    if (Array.isArray(options)) {
+      const fragmentTypes = options.map((fragment) => fragment.constructor.name);
+
+      if (
+        !['TimestampFragment', 'RandomFragment'].some((type) =>
+          fragmentTypes.includes(type),
+        )
+      )
+        throw new Error(
+          '[BAD_FRAGMENT_CONDITIONS]: Snowflakify instance must have at least one TimestampFragment or RandomFragment.',
+        );
+
+      if (
+        fragmentTypes.includes('RandomFragment') &&
+        !['TimestampFragment', 'SequenceFragment'].some((type) =>
+          fragmentTypes.includes(type),
+        )
+      )
+        throw new Error(
+          '[BAD_FRAGMENT_CONDITIONS]: A RandomFragment must be coupled with at least one TimestampFragment or SequenceFragment.',
+        );
+
+      return options;
+    }
+
+    if (
+      options?.preset &&
+      !['worker_process', 'ipv4', 'mac'].includes(options.preset)
+    )
+      throw new Error(
+        `[PRESET_INVALID]: Snowflakify preset "${options?.preset}" is invalid; Expected "worker_process", "ipv4", or "mac".`,
+      );
+
+    return Options.defaultOptions(options);
   }
 }

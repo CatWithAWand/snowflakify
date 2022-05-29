@@ -15,7 +15,8 @@ const getIPv4Address = (
       ?.address ?? '';
 
   // (!/^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)(\.(?!$)|$)){4}$/.test(ip))
-  if (!ip) err = new Error('Could not find a valid public IPv4 address!');
+  if (!ip)
+    err = new Error('[IPV4_ADDR_NOT_FOUND]: Could not find a valid IPv4 address.');
 
   return callback(err, ip);
 };
@@ -33,7 +34,8 @@ const getMacAddress = (
       )?.mac ?? '';
 
   // (!/([0-9a-fA-F]{2}[:]){5}([0-9a-fA-F]{2})/.test(mac))
-  if (!mac) err = new Error('Could not find a valid MAC address!');
+  if (!mac)
+    err = new Error('[MAC_ADDR_NOT_FOUND]: Could not find a valid MAC address.');
 
   return callback(err, mac);
 };

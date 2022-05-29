@@ -20,10 +20,19 @@ export default class TimestampFragment extends FragmentBase {
     super(bits);
 
     if (bits < 38)
-      throw new Error('TimestampFragment bits must be greater than or equal to 38!');
+      throw new RangeError(
+        '[TIMESTAMP_BITS_INVALID_RANGE]: TimestampFragment bits must be greater than or equal to 38',
+      );
+
+    if (typeof epoch !== 'number')
+      throw new TypeError(
+        '[EPOCH_INVALID_TYPE]: TimestampFragment epoch must be a number.',
+      );
 
     if (epoch < 0 || epoch > Date.now())
-      throw new RangeError('Epoch must be between 0 and Date.now() at runtime!');
+      throw new RangeError(
+        '[EPOCH_INVALID_RANGE]: TimestampFragment epoch must be within 0 and Date.now() at instantiation time.',
+      );
 
     if (bits >= 58) {
       // nanosecond time unit
@@ -64,7 +73,7 @@ export default class TimestampFragment extends FragmentBase {
     return this.value - this.epoch;
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

@@ -7,7 +7,9 @@ export default class NetworkFragment extends FragmentBase {
     super(bits);
 
     if (networkAddress !== 'ipv4' && networkAddress !== 'mac')
-      throw new Error('NetworkFragment networkAddress must be "ipv4" or "mac"');
+      throw new Error(
+        `[NETWORK_ADDRESS_INVALID]: NetworkFragment networkAddress "${networkAddress}" is invalid; Expected "ipv4" or "mac".`,
+      );
 
     this.value = this.getNetworkId();
   }
@@ -16,7 +18,7 @@ export default class NetworkFragment extends FragmentBase {
     return this.value;
   }
 
-  destructure(snowflake: bigint | string): DestructuredFragment {
+  destructure(snowflake: number | bigint | string): DestructuredFragment {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {

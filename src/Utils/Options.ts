@@ -6,7 +6,7 @@ import NetworkFragment from '../Fragments/NetworkFragment';
 import SequenceFragment from '../Fragments/SequenceFragment';
 
 export default class Options extends null {
-  private static defaultInternal = (epoch?: number): FragmentArray => [
+  private static defaultWorkerProcess = (epoch?: number): FragmentArray => [
     new TimestampFragment(42, epoch),
     new WorkerFragment(5),
     new ProcessFragment(5),
@@ -26,6 +26,6 @@ export default class Options extends null {
     if (options?.preset === 'ipv4' || options?.preset === 'mac')
       return this.defaultNetwork(options.epoch, options.preset);
 
-    return this.defaultInternal(options?.epoch);
+    return this.defaultWorkerProcess(options?.epoch);
   };
 }
