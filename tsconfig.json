@@ -25,6 +25,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
 
+    "declaration": true,
+
     "pretty": false,
     "skipDefaultLibCheck": true
   },

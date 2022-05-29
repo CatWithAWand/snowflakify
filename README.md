@@ -9,7 +9,7 @@
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <br>
   <strong>A complete Snowflake ID generator in TypeScript. <br>
-  Generate, manage, create custom snowflakes, and more...</strong>
+  Generate, custom snowflakes structures, destructuring and more...</strong>
 </p>
 
 ---
@@ -33,3 +33,93 @@ Snowflakify is a complete [Node.js](https://nodejs.org) module for snowflake ID 
   - IPv4 Address
   - MAC Address
   - Sequence
+
+<br>
+
+## Installation
+
+**npm:**
+
+```bash
+$ npm install snowflakify
+```
+
+**yarn:**
+
+```bash
+$ yarn add snowflakify
+```
+
+**pnpm:**
+
+```bash
+$ pnpm add snowflakify
+```
+
+<br>
+
+## Usage
+
+Creating a new Snowflakify ID generator
+
+```js
+const { Snowflakify } = require('snowflakify');
+
+// with default options
+const snowflakify = new Snowflakify();
+
+// or with a custom epoch and one of the three presets
+const CUSTOM_EPOCH = 1262304001000;
+const snowflakify = new Snowflakify({ epoch: CUSTOM_EPOCH, preset: 'ipv4' });
+```
+
+Generating a snowflake ID
+
+```js
+snowflakify.nextId();
+// 980396402074988545n
+```
+
+Destructuring a snowflake ID
+
+```js
+const snowflakeId = snowflakify.nextId();
+// 980397365649235969n
+
+snowflakify.destructure(snowflakeId);
+// [
+//   { identifier: 'timestamp', value: 1653815346873n },
+//   { identifier: 'worker', value: 0 },
+//   { identifier: 'process', value: 6 },
+//   { identifier: 'sequence', value: 1 }
+// ]
+```
+
+Creating a custom snowflake structure
+
+```js
+const {
+  Snowflakify,
+  TimestampFragment,
+  NetworkFragment,
+  SequenceFragment,
+} = require('snowflakify');
+
+const CUSTOM_EPOCH = 1262304001000;
+
+const snowflakify = new Snowflakify([
+  new TimestampFragment(42, CUSTOM_EPOCH),
+  new NetworkFragment(10, 'mac'),
+  new SequenceFragment(12),
+]);
+
+const snowflakeId = snowflakify.nextId();
+// 1642119277687676929n
+
+snowflakify.destructure(snowflakeId);
+// [
+//   { identifier: 'timestamp', value: 1653815745901n },
+//   { identifier: 'mac', value: 594 },
+//   { identifier: 'sequence', value: 1 }
+// ]
+```

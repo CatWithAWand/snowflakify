@@ -1,6 +1,5 @@
 {
   "name": "snowflakify",
-  "private": true,
   "version": "1.0.0",
   "description": "The most complete Snowflake ID generator in TypeScript",
   "license": "MIT",
@@ -24,8 +23,8 @@
     "discord",
     "typescript"
   ],
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "directories": {
     "lib": "dist",
     "test": "test"
