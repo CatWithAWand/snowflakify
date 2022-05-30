@@ -1,9 +1,15 @@
 import { networkInterfaces } from 'node:os';
 
+/**
+ * @internal
+ */
 const isEmpty = (obj: any) =>
   [Object, Array].includes((obj || {}).constructor) &&
   !Object.entries(obj || {}).length;
 
+/**
+ * @internal
+ */
 const getIPv4Address = (
   callback: (err: Error | null, ip: string) => string,
 ): string | null => {
@@ -21,6 +27,9 @@ const getIPv4Address = (
   return callback(err, ip);
 };
 
+/**
+ * @internal
+ */
 const getMacAddress = (
   callback: (err: Error | null, mac: string) => string,
 ): string | null => {

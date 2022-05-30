@@ -2,7 +2,20 @@ import cluster from 'node:cluster';
 import FragmentBase from '../FragmentBase';
 import { DestructuredFragment } from '../@types';
 
+/**
+ * WorkerFragment class for cluster worker IDs.
+ * @public
+ */
 export default class WorkerFragment extends FragmentBase {
+  /**
+   * @param bits - The number of bits for the fragment.
+   * @param value - A persistent ID value to use for the fragment.
+   *
+   * Defaults to the current worker ID if omitted.
+   *
+   * @throws `[VALUE_INVALID_TYPE]` If value is not a number.
+   * @throws `[VALUE_INVALID_RANGE]` If value is less than 0 or greater than maxValue.
+   */
   constructor(bits: number, value?: number) {
     super(bits);
 

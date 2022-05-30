@@ -2,7 +2,21 @@ import { randomInt } from 'node:crypto';
 import FragmentBase from '../FragmentBase';
 import { DestructuredFragment } from '../@types';
 
+/**
+ * RandomFragment class for random IDs.
+ * @public
+ */
 export default class RandomFragment extends FragmentBase {
+  /**
+   * @remarks
+   * When using a custom random function, please ensure it returns a positive number
+   * no greater than `2 ** bits - 1`.
+   *
+   * @param bits - The number of bits for the fragment.
+   * @param func - Optional custom random function.
+   *
+   * @throws `[RND_FUNCTION_RETURN_TYPE]` If func does not return number or bigint.
+   */
   constructor(bits: number, private readonly func?: () => number | bigint) {
     super(bits);
 

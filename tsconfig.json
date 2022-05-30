@@ -7,7 +7,7 @@
     "newLine": "lf",
     "outDir": "./dist",
     "moduleResolution": "node",
-    "removeComments": true,
+    "removeComments": false,
     "allowUnreachableCode": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
