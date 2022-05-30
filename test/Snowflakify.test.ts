@@ -154,4 +154,6 @@ test('improper SequenceFragment instantiation throws', () => {
   expect(() => new SequenceFragment(0)).toThrow();
 });
 
-// TODO: implement tests for RandomFragment default and custom function randomness
+test.todo(
+  'implement tests for RandomFragment default and custom function randomness',
+);

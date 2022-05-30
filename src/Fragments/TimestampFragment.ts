@@ -143,7 +143,7 @@ export default class TimestampFragment extends FragmentBase {
    * The number of the fragment's bits defines the time unit.
    * This is done to avoid overflow when left shifting.
    *
-   * @returns A Unix timestamp in the fragments' time unit.
+   * @returns A Unix timestamp in the fragment's time unit.
    * @internal
    */
   private unixNow(): bigint {

@@ -10,7 +10,7 @@
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <br>
   <strong>A complete Snowflake ID generator in TypeScript. <br>
-  Generation, destructuring, custom snowflakes structures and more...</strong>
+  Generation, destructuring, custom snowflake structure, and more...</strong>
 </p>
 
 ---
@@ -205,6 +205,8 @@ Worker 3 received message:
   ]
 }
 ```
+
+<br>
 
 ## Example with cluster
 

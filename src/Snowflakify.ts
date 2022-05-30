@@ -19,7 +19,7 @@ export default class Snowflakify {
    *
    * @remarks
    * When reading this array outside of a Snowflakify class:
-   * - Do not call fragments' methods.
+   * - Do not call fragments methods.
    * - Do not add or remove fragments.
    * - Do not reorder fragments.
    * - Do not modify this array.
@@ -57,7 +57,7 @@ export default class Snowflakify {
   /**
    * Returns a snowflake ID.
    *
-   * @returns The sum of all fragments' values shifted to the left by their bitShift.
+   * @returns The sum of all fragments values shifted to the left by their bitShift.
    *
    * @public
    */
