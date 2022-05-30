@@ -27,11 +27,12 @@
   "types": "./dist/index.d.ts",
   "directories": {
     "lib": "dist",
-    "test": "test"
+    "test": "test",
+    "doc": "docs"
   },
   "files": [
-    "src",
-    "src/@types"
+    "dist",
+    "dist/@types"
   ],
   "engines": {
     "node": ">=16.0.0"

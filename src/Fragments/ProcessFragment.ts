@@ -14,7 +14,7 @@ export default class ProcessFragment extends FragmentBase {
    * Defaults to the current process ID if omitted.
    *
    * @throws `[VALUE_INVALID_TYPE]` If value is not a number.
-   * @throws `[VALUE_INVALID_RANGE]` If value is less than 0 or greater than maxValue.
+   * @throws `[VALUE_INVALID_RANGE]` If value is not within 0 and 2 ** bits - 1
    */
   constructor(bits: number, value?: number) {
     super(bits);

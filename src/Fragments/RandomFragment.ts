@@ -15,19 +15,19 @@ export default class RandomFragment extends FragmentBase {
    * @param bits - The number of bits for the fragment.
    * @param func - Optional custom random function.
    *
-   * @throws `[RND_FUNCTION_RETURN_TYPE]` If func does not return number or bigint.
+   * @throws `[RND_FUNCTION_RETURN_TYPE]` If custom function does not return number or bigint.
    */
-  constructor(bits: number, private readonly func?: () => number | bigint) {
+  constructor(bits: number, private readonly fn?: () => number | bigint) {
     super(bits);
 
-    if (func && !['number', 'bigint'].includes(typeof func()))
+    if (fn && !['number', 'bigint'].includes(typeof fn()))
       throw new TypeError(
-        `[RND_FUNCTION_RETURN_TYPE]: RandomFragment custom function return is of type: ${typeof func()}; Expected number or bigint.`,
+        `[RND_FUNCTION_RETURN_TYPE]: RandomFragment custom function return is of type: ${typeof fn()}; Expected number or bigint.`,
       );
   }
 
   getValue(): bigint {
-    if (this.func) return BigInt(this.func());
+    if (this.fn) return BigInt(this.fn());
     // 48 bit parts due to randomInt range limitation
     // and max param limit of Number.MAX_SAFE_INTEGER
     let rndNum = BigInt(1);
