@@ -1,73 +1,271 @@
-<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>snowflakify</title><meta name="description" content="Documentation for snowflakify"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">snowflakify</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> snowflakify </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography"><a href="https://github.com/CatWithAWand/snowflakify">
-  <p align="center">
-    <img width=500 src="https://raw.githubusercontent.com/CatWithAWand/snowflakify/main/logo.svg"/>
-  </p>
-</a>
+<!DOCTYPE html>
+<html class="default">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <title>snowflakify</title>
+    <meta name="description" content="Documentation for snowflakify" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script async src="assets/search.js" id="search-script"></script>
+  </head>
+  <body>
+    <script>
+      document.body.classList.add(localStorage.getItem('tsd-theme') || 'os');
+    </script>
+    <header>
+      <div class="tsd-page-toolbar">
+        <div class="container">
+          <div class="table-wrap">
+            <div class="table-cell" id="tsd-search" data-base=".">
+              <div class="field">
+                <label for="tsd-search-field" class="tsd-widget search no-caption"
+                  >Search</label
+                ><input type="text" id="tsd-search-field" />
+              </div>
+              <ul class="results">
+                <li class="state loading">Preparing search index...</li>
+                <li class="state failure">The search index is not available</li>
+              </ul>
+              <a href="index.html" class="title">snowflakify</a>
+            </div>
+            <div class="table-cell" id="tsd-widgets">
+              <div id="tsd-filter">
+                <a
+                  href="#"
+                  class="tsd-widget options no-caption"
+                  data-toggle="options"
+                  >Options</a
+                >
+                <div class="tsd-filter-group">
+                  <div class="tsd-select" id="tsd-filter-visibility">
+                    <span class="tsd-select-label">All</span>
+                    <ul class="tsd-select-list">
+                      <li data-value="public">Public</li>
+                      <li data-value="protected">Public/Protected</li>
+                      <li data-value="private" class="selected">All</li>
+                    </ul>
+                  </div>
+                  <input type="checkbox" id="tsd-filter-inherited" checked /><label
+                    class="tsd-widget"
+                    for="tsd-filter-inherited"
+                    >Inherited</label
+                  >
+                </div>
+              </div>
+              <a href="#" class="tsd-widget menu no-caption" data-toggle="menu"
+                >Menu</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tsd-page-title">
+        <div class="container"><h1>snowflakify</h1></div>
+      </div>
+    </header>
+    <div class="container container-main">
+      <div class="row">
+        <div class="col-8 col-content">
+          <div class="tsd-panel tsd-typography">
+            <a href="https://github.com/CatWithAWand/snowflakify">
+              <p align="center">
+                <img
+                  width="500"
+                  src="https://raw.githubusercontent.com/CatWithAWand/snowflakify/main/logo.svg"
+                />
+              </p>
+            </a>
 
-<p align="center">
-  <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen?style=flat" alt="Commitizen friendly" /></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
-  <br>
-  <strong>A complete Snowflake ID generator in TypeScript. <br>
-  Generate, custom snowflakes structures, destructuring and more...</strong>
-</p>
+            <p align="center">
+              <a href="http://commitizen.github.io/cz-cli/"
+                ><img
+                  src="https://img.shields.io/badge/commitizen-friendly-brightgreen?style=flat"
+                  alt="Commitizen friendly"
+              /></a>
+              <a href="https://www.typescriptlang.org/"
+                ><img
+                  src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white"
+                  alt="TypeScript"
+              /></a>
+              <br />
+              <strong
+                >A complete Snowflake ID generator in TypeScript. <br />
+                Generate, custom snowflakes structures, destructuring and
+                more...</strong
+              >
+            </p>
 
-<hr>
-<br>
+            <hr />
+            <br />
 
+            <a
+              href="#about"
+              id="about"
+              style="color: inherit; text-decoration: none"
+            >
+              <h2>About</h2>
+            </a>
+            <p>
+              Snowflakify is a complete
+              <a href="https://nodejs.org">Node.js</a> module for snowflake ID
+              generation written in
+              <a href="https://www.typescriptlang.org/">TypeScript</a>.
+            </p>
+            <ul>
+              <li>IDs based on Workers/Cluster, machine IPv4/MAC addresses</li>
+              <li>Snowflake destructuring</li>
+              <li>BigInt based</li>
+              <li>Custom epoch</li>
+              <li>
+                Custom snowflake fragments <br />
+                with customizable bit length:
+                <ul>
+                  <li>Timestamp</li>
+                  <li>Random</li>
+                  <li>Worker ID</li>
+                  <li>Process ID</li>
+                  <li>IPv4 Address</li>
+                  <li>MAC Address</li>
+                  <li>Sequence</li>
+                </ul>
+              </li>
+            </ul>
+            <br />
 
-<a href="#about" id="about" style="color: inherit; text-decoration: none;">
-  <h2>About</h2>
-</a>
-<p>Snowflakify is a complete <a href="https://nodejs.org">Node.js</a> module for snowflake ID generation written in <a href="https://www.typescriptlang.org/">TypeScript</a>.</p>
-<ul>
-<li>IDs based on Workers/Cluster, machine IPv4/MAC addresses</li>
-<li>Snowflake destructuring</li>
-<li>BigInt based</li>
-<li>Custom epoch</li>
-<li>Custom snowflake fragments <br>
-with customizable bit length:<ul>
-<li>Timestamp</li>
-<li>Random</li>
-<li>Worker ID</li>
-<li>Process ID</li>
-<li>IPv4 Address</li>
-<li>MAC Address</li>
-<li>Sequence</li>
-</ul>
-</li>
-</ul>
-<br>
-
-
-<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-  <h2>Installation</h2>
-</a>
-<p><strong>npm:</strong></p>
-<pre><code class="language-bash"><span class="hl-0">$ npm install snowflakify</span>
+            <a
+              href="#installation"
+              id="installation"
+              style="color: inherit; text-decoration: none"
+            >
+              <h2>Installation</h2>
+            </a>
+            <p><strong>npm:</strong></p>
+            <pre><code class="language-bash"><span class="hl-0">$ npm install snowflakify</span>
 </code></pre>
-<p><strong>yarn:</strong></p>
-<pre><code class="language-bash"><span class="hl-0">$ yarn add snowflakify</span>
+            <p><strong>yarn:</strong></p>
+            <pre><code class="language-bash"><span class="hl-0">$ yarn add snowflakify</span>
 </code></pre>
-<p><strong>pnpm:</strong></p>
-<pre><code class="language-bash"><span class="hl-0">$ pnpm add snowflakify</span>
+            <p><strong>pnpm:</strong></p>
+            <pre><code class="language-bash"><span class="hl-0">$ pnpm add snowflakify</span>
 </code></pre>
-<br>
+            <br />
 
-
-<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-  <h2>Usage</h2>
-</a>
-<p>Creating a new Snowflakify ID generator</p>
-<pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> { </span><span class="hl-2">Snowflakify</span><span class="hl-0"> } = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;snowflakify&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">// with default options</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">();</span><br/><br/><span class="hl-5">// or with a custom epoch and one of the three presets</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0"> = </span><span class="hl-6">1262304001000</span><span class="hl-0">;</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">({ </span><span class="hl-7">epoch:</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0">, </span><span class="hl-7">preset:</span><span class="hl-0"> </span><span class="hl-4">&#39;ipv4&#39;</span><span class="hl-0"> });</span>
+            <a
+              href="#usage"
+              id="usage"
+              style="color: inherit; text-decoration: none"
+            >
+              <h2>Usage</h2>
+            </a>
+            <p>Creating a new Snowflakify ID generator</p>
+            <pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> { </span><span class="hl-2">Snowflakify</span><span class="hl-0"> } = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;snowflakify&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">// with default options</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">();</span><br/><br/><span class="hl-5">// or with a custom epoch and one of the three presets</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0"> = </span><span class="hl-6">1262304001000</span><span class="hl-0">;</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">({ </span><span class="hl-7">epoch:</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0">, </span><span class="hl-7">preset:</span><span class="hl-0"> </span><span class="hl-4">&#39;ipv4&#39;</span><span class="hl-0"> });</span>
 </code></pre>
-<p>Generating a snowflake ID</p>
-<pre><code class="language-js"><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 980396402074988545n</span>
+            <p>Generating a snowflake ID</p>
+            <pre><code class="language-js"><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 980396402074988545n</span>
 </code></pre>
-<p>Destructuring a snowflake ID</p>
-<pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakeId</span><span class="hl-0"> = </span><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 980397365649235969n</span><br/><br/><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">destructure</span><span class="hl-0">(</span><span class="hl-7">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-5">// [</span><br/><span class="hl-5">//   { identifier: &#39;timestamp&#39;, value: 1653815346873n },</span><br/><span class="hl-5">//   { identifier: &#39;worker&#39;, value: 0 },</span><br/><span class="hl-5">//   { identifier: &#39;process&#39;, value: 6 },</span><br/><span class="hl-5">//   { identifier: &#39;sequence&#39;, value: 1 }</span><br/><span class="hl-5">// ]</span>
+            <p>Destructuring a snowflake ID</p>
+            <pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakeId</span><span class="hl-0"> = </span><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 980397365649235969n</span><br/><br/><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">destructure</span><span class="hl-0">(</span><span class="hl-7">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-5">// [</span><br/><span class="hl-5">//   { identifier: &#39;timestamp&#39;, value: 1653815346873n },</span><br/><span class="hl-5">//   { identifier: &#39;worker&#39;, value: 0 },</span><br/><span class="hl-5">//   { identifier: &#39;process&#39;, value: 6 },</span><br/><span class="hl-5">//   { identifier: &#39;sequence&#39;, value: 1 }</span><br/><span class="hl-5">// ]</span>
 </code></pre>
-<p>Creating a custom snowflake structure</p>
-<pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">Snowflakify</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">TimestampFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">NetworkFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">SequenceFragment</span><span class="hl-0">,</span><br/><span class="hl-0">} = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;snowflakify&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0"> = </span><span class="hl-6">1262304001000</span><span class="hl-0">;</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">([</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">TimestampFragment</span><span class="hl-0">(</span><span class="hl-6">42</span><span class="hl-0">, </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0">),</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">NetworkFragment</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">&#39;mac&#39;</span><span class="hl-0">),</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">SequenceFragment</span><span class="hl-0">(</span><span class="hl-6">12</span><span class="hl-0">),</span><br/><span class="hl-0">]);</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakeId</span><span class="hl-0"> = </span><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 1642119277687676929n</span><br/><br/><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">destructure</span><span class="hl-0">(</span><span class="hl-7">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-5">// [</span><br/><span class="hl-5">//   { identifier: &#39;timestamp&#39;, value: 1653815745901n },</span><br/><span class="hl-5">//   { identifier: &#39;mac&#39;, value: 594 },</span><br/><span class="hl-5">//   { identifier: &#39;sequence&#39;, value: 1 }</span><br/><span class="hl-5">// ]</span>
+            <p>Creating a custom snowflake structure</p>
+            <pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">Snowflakify</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">TimestampFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">NetworkFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">SequenceFragment</span><span class="hl-0">,</span><br/><span class="hl-0">} = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;snowflakify&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0"> = </span><span class="hl-6">1262304001000</span><span class="hl-0">;</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakify</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">Snowflakify</span><span class="hl-0">([</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">TimestampFragment</span><span class="hl-0">(</span><span class="hl-6">42</span><span class="hl-0">, </span><span class="hl-2">CUSTOM_EPOCH</span><span class="hl-0">),</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">NetworkFragment</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">&#39;mac&#39;</span><span class="hl-0">),</span><br/><span class="hl-0">  </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">SequenceFragment</span><span class="hl-0">(</span><span class="hl-6">12</span><span class="hl-0">),</span><br/><span class="hl-0">]);</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">snowflakeId</span><span class="hl-0"> = </span><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">nextId</span><span class="hl-0">();</span><br/><span class="hl-5">// 1642119277687676929n</span><br/><br/><span class="hl-7">snowflakify</span><span class="hl-0">.</span><span class="hl-3">destructure</span><span class="hl-0">(</span><span class="hl-7">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-5">// [</span><br/><span class="hl-5">//   { identifier: &#39;timestamp&#39;, value: 1653815745901n },</span><br/><span class="hl-5">//   { identifier: &#39;mac&#39;, value: 594 },</span><br/><span class="hl-5">//   { identifier: &#39;sequence&#39;, value: 1 }</span><br/><span class="hl-5">// ]</span>
 </code></pre>
-</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/_types.html">@types</a></li><li class=" tsd-kind-module"><a href="modules/FragmentBase.html">Fragment<wbr/>Base</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_NetworkFragment.html">Fragments/<wbr/>Network<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_ProcessFragment.html">Fragments/<wbr/>Process<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_RandomFragment.html">Fragments/<wbr/>Random<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_SequenceFragment.html">Fragments/<wbr/>Sequence<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_TimestampFragment.html">Fragments/<wbr/>Timestamp<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Fragments_WorkerFragment.html">Fragments/<wbr/>Worker<wbr/>Fragment</a></li><li class=" tsd-kind-module"><a href="modules/Snowflakify.html">Snowflakify</a></li><li class=" tsd-kind-module"><a href="modules/Utils_Options.html">Utils/<wbr/>Options</a></li><li class=" tsd-kind-module"><a href="modules/Utils_Util.html">Utils/<wbr/>Util</a></li><li class=" tsd-kind-module"><a href="modules/index.html">index</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li><li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
+          </div>
+        </div>
+        <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+          <nav class="tsd-navigation primary">
+            <ul>
+              <li class="current"><a href="modules.html">Modules</a></li>
+              <li class="tsd-kind-module">
+                <a href="modules/_types.html">@types</a>
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/FragmentBase.html">Fragment<wbr />Base</a>
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_NetworkFragment.html"
+                  >Fragments/<wbr />Network<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_ProcessFragment.html"
+                  >Fragments/<wbr />Process<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_RandomFragment.html"
+                  >Fragments/<wbr />Random<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_SequenceFragment.html"
+                  >Fragments/<wbr />Sequence<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_TimestampFragment.html"
+                  >Fragments/<wbr />Timestamp<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Fragments_WorkerFragment.html"
+                  >Fragments/<wbr />Worker<wbr />Fragment</a
+                >
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Snowflakify.html">Snowflakify</a>
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Utils_Options.html">Utils/<wbr />Options</a>
+              </li>
+              <li class="tsd-kind-module">
+                <a href="modules/Utils_Util.html">Utils/<wbr />Util</a>
+              </li>
+              <li class="tsd-kind-module"><a href="modules/index.html">index</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <footer class="with-border-bottom">
+      <div class="container">
+        <h2>Legend</h2>
+        <div class="tsd-legend-group">
+          <ul class="tsd-legend">
+            <li class="tsd-kind-function">
+              <span class="tsd-kind-icon">Function</span>
+            </li>
+            <li class="tsd-kind-type-alias">
+              <span class="tsd-kind-icon">Type alias</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-interface">
+              <span class="tsd-kind-icon">Interface</span>
+            </li>
+          </ul>
+          <ul class="tsd-legend">
+            <li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+          </ul>
+        </div>
+        <h2>Settings</h2>
+        <p>
+          Theme
+          <select id="theme">
+            <option value="os">OS</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </p>
+      </div>
+    </footer>
+    <div class="container tsd-generator">
+      <p>
+        Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a>
+      </p>
+    </div>
+    <div class="overlay"></div>
+    <script src="assets/main.js"></script>
+  </body>
+</html>

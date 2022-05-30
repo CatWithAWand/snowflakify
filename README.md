@@ -5,11 +5,12 @@
 </a>
 
 <p align="center">
+  <a href="https://catwithawand.github.io/snowflakify/"><img src="https://img.shields.io/github/deployments/CatWithAWand/snowflakify/github-pages?label=github-pages&style=flat" alt="GitHub-pages deployment" /></a>
   <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen?style=flat" alt="Commitizen friendly" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <br>
   <strong>A complete Snowflake ID generator in TypeScript. <br>
-  Generate, custom snowflakes structures, destructuring and more...</strong>
+  Generation, destructuring, custom snowflakes structures and more...</strong>
 </p>
 
 ---
@@ -18,9 +19,9 @@
 
 ## About
 
-Snowflakify is a complete [Node.js](https://nodejs.org) module for snowflake ID generation written in [TypeScript](https://www.typescriptlang.org/).
+Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed systems to generate snowflake IDs written in [TypeScript](https://www.typescriptlang.org/).
 
-- IDs based on Workers/Cluster, machine IPv4/MAC addresses
+- IDs based on worker threads/cluster, <br> machine IPv4/MAC addresses
 - Snowflake destructuring
 - BigInt based
 - Custom epoch
@@ -122,4 +123,145 @@ snowflakify.destructure(snowflakeId);
 //   { identifier: 'mac', value: 594 },
 //   { identifier: 'sequence', value: 1 }
 // ]
+```
+
+<br><br>
+
+> ## **Note:** Snowflakify must be instantiated inside the worker when working with worker_threads or cluster, else it won't be able to see the worker.
+
+<br>
+
+## Example with worker_threads
+
+index.js
+
+```js
+const { Worker } = require('worker_threads');
+
+const numWorkers = 3;
+
+for (let i = 0; i < numWorkers; i += 1) {
+  const worker = new Worker('./worker.js');
+
+  worker.on('message', (msg) => {
+    console.log(`Worker ${worker.threadId} received message:`);
+    console.log(msg);
+  });
+}
+```
+
+worker.js
+
+```js
+const { parentPort } = require('node:worker_threads');
+const { Snowflakify } = require('snowflakify');
+
+const snowflakify = new Snowflakify();
+
+const snowflakeId = () => {
+  const snowflake = snowflakify.nextId();
+  const destructuredSnowflake = snowflakify.destructure(snowflake);
+
+  return {
+    snowflake,
+    destructuredSnowflake,
+  };
+};
+
+parentPort.postMessage(snowflakeId());
+```
+
+Console output
+
+```bash
+Worker 1 received message:
+{
+  snowflake: 980668860120371201n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653880076199n },
+    { identifier: 'worker', value: 1 },
+    { identifier: 'process', value: 17 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
+Worker 2 received message:
+{
+  snowflake: 980668860128890881n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653880076201n },
+    { identifier: 'worker', value: 2 },
+    { identifier: 'process', value: 17 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
+Worker 3 received message:
+{
+  snowflake: 980668860129021953n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653880076201n },
+    { identifier: 'worker', value: 3 },
+    { identifier: 'process', value: 17 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
+```
+
+## Example with cluster
+
+index.js
+
+```js
+const cluster = require('node:cluster');
+const { Snowflakify } = require('snowflakify');
+
+const numWorkers = 3;
+
+if (cluster.isPrimary) {
+  for (let i = 0; i < numWorkers; i += 1) {
+    cluster.fork();
+  }
+} else {
+  const snowflakify = new Snowflakify();
+
+  const snowflake = snowflakify.nextId();
+  const destructuredSnowflake = snowflakify.destructure(snowflake);
+
+  console.log(`Worker ${cluster.worker.id} generated snowflake:`);
+  console.log({ snowflake, destructuredSnowflake });
+}
+```
+
+Console output
+
+```bash
+Worker 1 generated snowflake:
+{
+  snowflake: 980676479111352321n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653881892708n },
+    { identifier: 'worker', value: 1 },
+    { identifier: 'process', value: 21 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
+Worker 2 generated snowflake:
+{
+  snowflake: 980676479132459009n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653881892713n },
+    { identifier: 'worker', value: 2 },
+    { identifier: 'process', value: 22 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
+Worker 3 generated snowflake:
+{
+  snowflake: 980676479220695041n,
+  destructuredSnowflake: [
+    { identifier: 'timestamp', value: 1653881892734n },
+    { identifier: 'worker', value: 3 },
+    { identifier: 'process', value: 28 },
+    { identifier: 'sequence', value: 1 }
+  ]
+}
 ```

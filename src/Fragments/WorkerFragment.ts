@@ -1,9 +1,10 @@
+import { isMainThread, threadId } from 'node:worker_threads';
 import cluster from 'node:cluster';
 import FragmentBase from '../FragmentBase';
 import { DestructuredFragment } from '../@types';
 
 /**
- * WorkerFragment class for cluster worker IDs.
+ * WorkerFragment class for worker IDs.
  * @public
  */
 export default class WorkerFragment extends FragmentBase {
@@ -31,9 +32,14 @@ export default class WorkerFragment extends FragmentBase {
         );
 
       this.value = BigInt(value);
+    } else if (!isMainThread) {
+      // is worker thread
+      this.value = BigInt(threadId ?? 0) & this.maxValue;
+    } else if (!cluster.isPrimary) {
+      // is cluster worker
+      this.value = BigInt(cluster.worker?.id ?? 0) & this.maxValue;
     } else {
-      this.value =
-        BigInt(cluster.isWorker ? cluster.worker?.id ?? 0 : 0) & this.maxValue;
+      this.value = BigInt(0);
     }
   }
 
