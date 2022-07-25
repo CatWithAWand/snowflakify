@@ -32,14 +32,8 @@ export default class WorkerFragment extends FragmentBase {
         );
 
       this.value = BigInt(value);
-    } else if (!isMainThread) {
-      // is worker thread
-      this.value = BigInt(threadId ?? 0) & this.maxValue;
-    } else if (!cluster.isPrimary) {
-      // is cluster worker
-      this.value = BigInt(cluster.worker?.id ?? 0) & this.maxValue;
     } else {
-      this.value = BigInt(0);
+      this.value = this.getWorkerId();
     }
   }
 
@@ -51,8 +45,31 @@ export default class WorkerFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: 'worker',
+      identifier: this.identifier,
       value: Number(bits >> this.bitShift),
     };
+  }
+
+  updateId(): void {
+    this.value = this.getWorkerId();
+  }
+
+  /**
+   * Returns the worker's ID.
+   *
+   * @remarks
+   * The value is masked by the maxValue to fit in the fragment's bits.
+   *
+   * @returns The worker's ID.
+   * @internal
+   */
+  private getWorkerId(): bigint {
+    if (!isMainThread)
+      // is worker thread
+      return BigInt(threadId ?? 0) & this.maxValue;
+    if (!cluster.isPrimary)
+      // is cluster worker
+      return BigInt(cluster.worker?.id ?? 0) & this.maxValue;
+    return BigInt(0);
   }
 }

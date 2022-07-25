@@ -34,9 +34,13 @@ export default class NetworkFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: this.networkAddress,
+      identifier: `${this.identifier}:${this.networkAddress}`,
       value: Number(bits >> this.bitShift),
     };
+  }
+
+  updateId(): void {
+    this.value = this.getNetworkId();
   }
 
   /**

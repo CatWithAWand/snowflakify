@@ -1,7 +1,9 @@
-import SequenceFragment from './Fragments/SequenceFragment';
-import TimestampFragment from './Fragments/TimestampFragment';
-import Options from './Utils/Options';
+import { isMainThread } from 'node:worker_threads';
 import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@types';
+import TimestampFragment from './Fragments/TimestampFragment';
+import SequenceFragment from './Fragments/SequenceFragment';
+import Options from './Utils/Options';
+import CircularBuffer from './CircularBuffer/CircularBuffer';
 
 /**
  * Snowflakify class for generating snowflake IDs.
@@ -28,6 +30,12 @@ export default class Snowflakify {
    */
   readonly fragments: FragmentArray;
 
+  private buffer: CircularBuffer;
+
+  servedByBuffer: number;
+
+  servedByMain: number;
+
   /**
    *
    * @remarks
@@ -43,7 +51,7 @@ export default class Snowflakify {
    
    */
   constructor(options?: SnowflakifyOptions) {
-    this.fragments = Snowflakify.resolveOptions(options);
+    this.fragments = this.resolveOptions(options);
 
     this.totalBits = this.fragments.reduce(
       (acc, fragment) => acc + fragment.bits,
@@ -52,6 +60,9 @@ export default class Snowflakify {
 
     this.updateBitShiftsAndMasks();
     this.coupleTimestampAndSequence();
+
+    this.servedByBuffer = 0;
+    this.servedByMain = 0;
   }
 
   /**
@@ -62,6 +73,11 @@ export default class Snowflakify {
    * @public
    */
   nextId(): bigint {
+    if (isMainThread && this.buffer && !this.buffer.isEmpty()) {
+      this.servedByBuffer += 1;
+      return this.buffer.pop();
+    }
+    this.servedByMain += 1;
     return this.fragments.reduce(
       (acc, fragment) => acc + (fragment.getValue() << fragment.bitShift),
       BigInt(0),
@@ -87,6 +103,17 @@ export default class Snowflakify {
       );
 
     return this.fragments.map((fragment) => fragment.destructure(snowflake));
+  }
+
+  /**
+   * Returns the buffers content.
+   *
+   * @returns An array of snowflake IDs.
+   *
+   * @public
+   */
+  getBuffer(): BigInt64Array {
+    return this.buffer.buffer;
   }
 
   /**
@@ -119,14 +146,24 @@ export default class Snowflakify {
   /**
    * @internal
    */
-  private static resolveOptions(options?: SnowflakifyOptions): FragmentArray {
+  private resolveOptions(options?: SnowflakifyOptions): FragmentArray {
     if (typeof options !== 'undefined' && typeof options !== 'object')
       throw new Error(
         '[OPTIONS_INVALID]: Snowflakify options supplied are invalid.',
       );
 
-    if (Array.isArray(options)) {
-      const fragmentTypes = options.map((fragment) => fragment.constructor.name);
+    if (isMainThread && options?.useBuffer)
+      this.buffer = new CircularBuffer(
+        options?.bufferSize,
+        options,
+        options?.bufferRefillThershold,
+        options?.workerCount,
+      );
+
+    if (options?.fragmentArray && Array.isArray(options?.fragmentArray)) {
+      const fragmentTypes = options.fragmentArray.map(
+        (fragment) => fragment.constructor.name,
+      );
 
       if (
         !['TimestampFragment', 'RandomFragment'].some((type) =>
@@ -147,7 +184,7 @@ export default class Snowflakify {
           '[BAD_FRAGMENT_CONDITIONS]: A RandomFragment must be coupled with at least one TimestampFragment or SequenceFragment.',
         );
 
-      return options;
+      return options.fragmentArray;
     }
 
     if (

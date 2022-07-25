@@ -3,6 +3,11 @@ import { networkInterfaces } from 'node:os';
 /**
  * @internal
  */
+const isPowerOfTwo = (num: number) => num > 0 && (num & (num - 1)) === 0;
+
+/**
+ * @internal
+ */
 const isEmpty = (obj: any) =>
   [Object, Array].includes((obj || {}).constructor) &&
   !Object.entries(obj || {}).length;
@@ -49,4 +54,4 @@ const getMacAddress = (
   return callback(err, mac);
 };
 
-export { isEmpty, getIPv4Address, getMacAddress };
+export { isPowerOfTwo, isEmpty, getIPv4Address, getMacAddress };

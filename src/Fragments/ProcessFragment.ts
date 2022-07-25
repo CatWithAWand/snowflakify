@@ -32,7 +32,7 @@ export default class ProcessFragment extends FragmentBase {
 
       this.value = BigInt(value);
     } else {
-      this.value = BigInt(process.pid) & this.maxValue;
+      this.value = this.getProcessId();
     }
   }
 
@@ -44,8 +44,25 @@ export default class ProcessFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: 'process',
+      identifier: this.identifier,
       value: Number(bits >> this.bitShift),
     };
+  }
+
+  updateId(): void {
+    this.value = this.getProcessId();
+  }
+
+  /**
+   * Returns the process ID.
+   *
+   * @remarks
+   * The value is masked by the maxValue to fit in the fragment's bits.
+   *
+   * @returns The process ID.
+   * @internal
+   */
+  private getProcessId(): bigint {
+    return BigInt(process.pid) & this.maxValue;
   }
 }

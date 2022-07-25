@@ -37,6 +37,11 @@ export default abstract class FragmentBase {
   bitMaskHex: string;
 
   /**
+   * The fragment identifier.
+   */
+  identifier: string;
+
+  /**
    * @param bits - The number of bits for the fragment.
    *
    * @throws `[BITS_INVALID_TYPE]` If bits is not a number.
@@ -53,6 +58,8 @@ export default abstract class FragmentBase {
 
     this.value = BigInt(0);
     this.maxValue = BigInt(2 ** bits) - BigInt(1);
+
+    this.identifier = this.constructor.name;
   }
 
   /**

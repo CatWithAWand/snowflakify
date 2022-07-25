@@ -43,7 +43,7 @@ export default class RandomFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: 'random',
+      identifier: this.identifier,
       value: bits >> this.bitShift,
     };
   }

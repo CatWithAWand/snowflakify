@@ -131,7 +131,7 @@ export default class TimestampFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: 'timestamp',
+      identifier: this.identifier,
       value: (bits >> this.bitShift) + this.epoch,
     };
   }
@@ -171,9 +171,10 @@ export default class TimestampFragment extends FragmentBase {
    * @internal
    */
   private checkForSequenceCollision(): void {
-    if (this.value === this.lastTimestamp && this.sequenceFragmentRef.willReset())
-      return this.waitForNextTimestamp();
-    return this.sequenceFragmentRef.resetSequence();
+    if (this.value !== this.lastTimestamp)
+      return this.sequenceFragmentRef.resetSequence();
+
+    if (this.sequenceFragmentRef.willReset()) return this.waitForNextTimestamp();
   }
 
   // private checkForClockDrift(): void {

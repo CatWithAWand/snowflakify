@@ -19,9 +19,10 @@
 
 ## About
 
-Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed systems to generate snowflake IDs written in [TypeScript](https://www.typescriptlang.org/).
+Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed systems to generate [snowflake IDs](https://en.wikipedia.org/wiki/Snowflake_ID) written in [TypeScript](https://www.typescriptlang.org/).
 
 - IDs based on worker threads/cluster, <br> machine IPv4/MAC addresses
+- Circular/Ring Buffer for increased output
 - Snowflake destructuring
 - BigInt based
 - Custom epoch
@@ -36,6 +37,17 @@ Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed s
   - Sequence
 
 <br>
+
+### Circular/Ring Buffer performance
+
+| useBuffer | workerCount | Time Period (s) | Generated/Main | Generated/Workers | ID/ms |
+| :-------: | :---------: | :-------------: | :------------: | :---------------: | :---: |
+|   false   |      0      |       10        |    3453950     |         0         | 345.4 |
+|   true    |      1      |       10        |    1190497     |      5700275      | 689.1 |
+|   true    |      2      |       10        |       0        |      8677260      | 867.7 |
+|   true    |      3      |       10        |       0        |      9726306      | 972.6 |
+
+<br><br>
 
 ## Installation
 
@@ -57,7 +69,7 @@ $ yarn add snowflakify
 $ pnpm add snowflakify
 ```
 
-<br>
+<br><br>
 
 ## Usage
 
@@ -78,21 +90,21 @@ Generating a snowflake ID
 
 ```js
 snowflakify.nextId();
-// 980396402074988545n
+// 1000920566716264449n
 ```
 
 Destructuring a snowflake ID
 
 ```js
 const snowflakeId = snowflakify.nextId();
-// 980397365649235969n
+// 1000920566716264449n
 
 snowflakify.destructure(snowflakeId);
 // [
-//   { identifier: 'timestamp', value: 1653815346873n },
-//   { identifier: 'worker', value: 0 },
-//   { identifier: 'process', value: 6 },
-//   { identifier: 'sequence', value: 1 }
+//   { identifier: 'TimestampFragment', value: 1658708459310n },
+//   { identifier: 'WorkerFragment', value: 0 },
+//   { identifier: 'ProcessFragment', value: 23 },
+//   { identifier: 'SequenceFragment', value: 1 }
 // ]
 ```
 
@@ -108,20 +120,22 @@ const {
 
 const CUSTOM_EPOCH = 1262304001000;
 
-const snowflakify = new Snowflakify([
-  new TimestampFragment(42, CUSTOM_EPOCH),
-  new NetworkFragment(10, 'mac'),
-  new SequenceFragment(12),
-]);
+const snowflakify = new Snowflakify({
+  fragmentArray: [
+    new TimestampFragment(42, CUSTOM_EPOCH),
+    new NetworkFragment(10, 'ipv4'),
+    new SequenceFragment(12),
+  ],
+});
 
 const snowflakeId = snowflakify.nextId();
-// 1642119277687676929n
+// 1662643509670989825n
 
 snowflakify.destructure(snowflakeId);
 // [
-//   { identifier: 'timestamp', value: 1653815745901n },
-//   { identifier: 'mac', value: 594 },
-//   { identifier: 'sequence', value: 1 }
+//   { identifier: 'TimestampFragment', value: 1658709104128n },
+//   { identifier: 'NetworkFragment:ipv4', value: 197 },
+//   { identifier: 'SequenceFragment', value: 1 }
 // ]
 ```
 
@@ -178,30 +192,30 @@ Worker 1 received message:
 {
   snowflake: 980668860120371201n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653880076199n },
-    { identifier: 'worker', value: 1 },
-    { identifier: 'process', value: 17 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653880076199n },
+    { identifier: 'WorkerFragment', value: 1 },
+    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 2 received message:
 {
   snowflake: 980668860128890881n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653880076201n },
-    { identifier: 'worker', value: 2 },
-    { identifier: 'process', value: 17 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653880076201n },
+    { identifier: 'WorkerFragment', value: 2 },
+    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 3 received message:
 {
   snowflake: 980668860129021953n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653880076201n },
-    { identifier: 'worker', value: 3 },
-    { identifier: 'process', value: 17 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653880076201n },
+    { identifier: 'WorkerFragment', value: 3 },
+    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 ```
@@ -240,30 +254,78 @@ Worker 1 generated snowflake:
 {
   snowflake: 980676479111352321n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653881892708n },
-    { identifier: 'worker', value: 1 },
-    { identifier: 'process', value: 21 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653881892708n },
+    { identifier: 'WorkerFragment', value: 1 },
+    { identifier: 'ProcessFragment', value: 21 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 2 generated snowflake:
 {
   snowflake: 980676479132459009n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653881892713n },
-    { identifier: 'worker', value: 2 },
-    { identifier: 'process', value: 22 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653881892713n },
+    { identifier: 'WorkerFragment', value: 2 },
+    { identifier: 'ProcessFragment', value: 22 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 3 generated snowflake:
 {
   snowflake: 980676479220695041n,
   destructuredSnowflake: [
-    { identifier: 'timestamp', value: 1653881892734n },
-    { identifier: 'worker', value: 3 },
-    { identifier: 'process', value: 28 },
-    { identifier: 'sequence', value: 1 }
+    { identifier: 'TimestampFragment', value: 1653881892734n },
+    { identifier: 'WorkerFragment', value: 3 },
+    { identifier: 'ProcessFragment', value: 28 },
+    { identifier: 'SequenceFragment', value: 1 }
   ]
 }
+```
+
+<br>
+
+## Using the Circular/Ring Buffer
+
+```js
+const { Snowflakify } = require('snowflakify');
+
+const CUSTOM_EPOCH = 1262304001000;
+
+const snowflakify = new Snowflakify({
+  useBuffer: true,
+  bufferSize: 2 ** 21,
+  workerCount: 2,
+  fragmentArray: [
+    new TimestampFragment(42, CUSTOM_EPOCH),
+    new WorkerFragment(5),
+    new ProcessFragment(5),
+    new SequenceFragment(12),
+  ],
+});
+
+// ...
+
+// Next 3 snowflake IDs generated and destructured
+
+// 1662657179066654721n
+// [
+//   { identifier: 'TimestampFragment', value: 1658712363166n },
+//   { identifier: 'WorkerFragment', value: 2 },
+//   { identifier: 'ProcessFragment', value: 22 },
+//   { identifier: 'SequenceFragment', value: 1 }
+// ]
+// 1662657179066654722n
+// [
+//   { identifier: 'TimestampFragment', value: 1658712363166n },
+//   { identifier: 'WorkerFragment', value: 2 },
+//   { identifier: 'ProcessFragment', value: 22 },
+//   { identifier: 'SequenceFragment', value: 2 }
+// ]
+// 1662657179066654723n
+// [
+//   { identifier: 'TimestampFragment', value: 1658712363166n },
+//   { identifier: 'WorkerFragment', value: 2 },
+//   { identifier: 'ProcessFragment', value: 22 },
+//   { identifier: 'SequenceFragment', value: 3 }
+// ]
 ```

@@ -16,7 +16,7 @@ export default class SequenceFragment extends FragmentBase {
     const bits = BigInt(snowflake) & this.bitMask;
 
     return {
-      identifier: 'sequence',
+      identifier: this.identifier,
       value: Number(bits >> this.bitShift),
     };
   }

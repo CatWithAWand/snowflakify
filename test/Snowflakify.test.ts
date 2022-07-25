@@ -31,12 +31,16 @@ test('invalid snowflakify options throw', () => {
 });
 
 test('missing a TimestampFragment or RandomFragment throws', () => {
-  expect(() => new Snowflakify([])).toThrow();
-  expect(() => new Snowflakify([new NetworkFragment(10)])).toThrow();
+  expect(() => new Snowflakify({ fragmentArray: [] })).toThrow();
+  expect(
+    () => new Snowflakify({ fragmentArray: [new NetworkFragment(10)] }),
+  ).toThrow();
 });
 
 test('RandomFragment missing TimestampFragment or SequenceFragment couple throws', () => {
-  expect(() => new Snowflakify([new RandomFragment(10)])).toThrow();
+  expect(
+    () => new Snowflakify({ fragmentArray: [new RandomFragment(10)] }),
+  ).toThrow();
 });
 
 test('snowflake generation', () => {
@@ -44,7 +48,7 @@ test('snowflake generation', () => {
 
   expect(typeof snowflake).toBe('bigint');
   expect(snowflake).toBeGreaterThan(0n);
-  expect(snowflake.toString().length).toBe(18);
+  expect(snowflake.toString().length).toBe(19);
 });
 
 test('destructure of valid snowflake', () => {

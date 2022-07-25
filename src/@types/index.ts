@@ -7,19 +7,25 @@ import SequenceFragment from '../Fragments/SequenceFragment';
 
 export type PredefinedPreset = 'worker_process' | 'ipv4' | 'mac';
 
-export type PresetOptions = { epoch?: number; preset?: PredefinedPreset };
-
-export type FragmentArray = Array<
+export type SnowflakifyFragment =
   | TimestampFragment
   | WorkerFragment
   | ProcessFragment
   | NetworkFragment
   | RandomFragment
-  | SequenceFragment
->;
+  | SequenceFragment;
 
-export type SnowflakifyOptions = PresetOptions | FragmentArray;
+export type FragmentArray = Array<SnowflakifyFragment>;
 
+export type SnowflakifyOptions = {
+  epoch?: number;
+  preset?: PredefinedPreset;
+  useBuffer?: boolean;
+  bufferSize?: number;
+  bufferRefillThershold?: number;
+  workerCount?: number;
+  fragmentArray?: FragmentArray;
+};
 export interface DestructuredFragment {
   identifier: string;
   value: number | bigint;

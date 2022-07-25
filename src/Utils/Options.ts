@@ -1,4 +1,4 @@
-import { FragmentArray, PresetOptions } from '../@types';
+import { FragmentArray, SnowflakifyOptions } from '../@types';
 import TimestampFragment from '../Fragments/TimestampFragment';
 import WorkerFragment from '../Fragments/WorkerFragment';
 import ProcessFragment from '../Fragments/ProcessFragment';
@@ -35,7 +35,7 @@ export default class Options extends null {
   /**
    * @internal
    */
-  static defaultOptions = (options?: PresetOptions): FragmentArray => {
+  static defaultOptions = (options?: SnowflakifyOptions): FragmentArray => {
     if (options?.preset === 'ipv4' || options?.preset === 'mac')
       return this.defaultNetwork(options.epoch, options.preset);
 
