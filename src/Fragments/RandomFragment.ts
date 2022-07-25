@@ -1,4 +1,4 @@
-import { randomInt } from 'node:crypto';
+import { randomInt } from 'crypto';
 import FragmentBase from '../FragmentBase';
 import { DestructuredFragment } from '../@types';
 

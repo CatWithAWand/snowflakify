@@ -1,4 +1,4 @@
-import { parentPort, workerData } from 'node:worker_threads';
+import { parentPort, workerData } from 'worker_threads';
 import { SnowflakifyFragment } from 'src/@types';
 import Snowflakify from '../Snowflakify';
 import TimestampFragment from '../Fragments/TimestampFragment';

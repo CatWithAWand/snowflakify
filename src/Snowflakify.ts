@@ -1,4 +1,4 @@
-import { isMainThread } from 'node:worker_threads';
+import { isMainThread } from 'worker_threads';
 import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@types';
 import TimestampFragment from './Fragments/TimestampFragment';
 import SequenceFragment from './Fragments/SequenceFragment';

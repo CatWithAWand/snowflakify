@@ -1,5 +1,5 @@
-import path from 'node:path';
-import { Worker } from 'node:worker_threads';
+import path from 'path';
+import { Worker } from 'worker_threads';
 import { SnowflakifyOptions } from 'src/@types';
 import CircularBuffer from './CircularBuffer';
 

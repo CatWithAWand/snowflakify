@@ -1,5 +1,5 @@
-import { isMainThread, threadId } from 'node:worker_threads';
-import cluster from 'node:cluster';
+import { isMainThread, threadId } from 'worker_threads';
+import cluster from 'cluster';
 import FragmentBase from '../FragmentBase';
 import { DestructuredFragment } from '../@types';
 

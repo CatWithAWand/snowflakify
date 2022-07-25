@@ -1,4 +1,4 @@
-import { hrtime } from 'node:process';
+import { hrtime } from 'process';
 import FragmentBase from '../FragmentBase';
 import SequenceFragment from './SequenceFragment';
 import { DestructuredFragment } from '../@types';

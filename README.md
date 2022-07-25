@@ -19,7 +19,7 @@
 
 ## About
 
-Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed systems to generate [snowflake IDs](https://en.wikipedia.org/wiki/Snowflake_ID) written in [TypeScript](https://www.typescriptlang.org/).
+Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed systems to generate [snowflake IDs](https://en.wikipedia.org/wiki/Snowflake_ID), written in [TypeScript](https://www.typescriptlang.org/).
 
 - IDs based on worker threads/cluster, <br> machine IPv4/MAC addresses
 - Circular/Ring Buffer for increased output
@@ -40,16 +40,18 @@ Snowflakify is a complete [Node.js](https://nodejs.org) module for distributed s
 
 ### Circular/Ring Buffer performance
 
-| useBuffer | workerCount | Time Period (s) | Generated/Main | Generated/Workers | ID/ms |
-| :-------: | :---------: | :-------------: | :------------: | :---------------: | :---: |
-|   false   |      0      |       10        |    3453950     |         0         | 345.4 |
-|   true    |      1      |       10        |    1190497     |      5700275      | 689.1 |
-|   true    |      2      |       10        |       0        |      8677260      | 867.7 |
-|   true    |      3      |       10        |       0        |      9726306      | 972.6 |
+| useBuffer | workerCount | Time Period (s) | Generated/Main | Generated/Workers | IDs/ms |
+| :-------: | :---------: | :-------------: | :------------: | :---------------: | :----: |
+|   false   |      0      |       10        |    3453950     |         0         | 345.4  |
+|   true    |      1      |       10        |    1190497     |      5700275      | 689.1  |
+|   true    |      2      |       10        |       0        |      8677260      | 867.7  |
+|   true    |      3      |       10        |       0        |      9726306      | 972.6  |
 
 <br><br>
 
 ## Installation
+
+### Requires Node.js 14.5.0 or newer.
 
 **npm:**
 
@@ -158,7 +160,7 @@ for (let i = 0; i < numWorkers; i += 1) {
   const worker = new Worker('./worker.js');
 
   worker.on('message', (msg) => {
-    console.log(`Worker ${worker.threadId} received message:`);
+    console.log(`Worker ${worker.threadId} generated snowflake:`);
     console.log(msg);
   });
 }
@@ -188,33 +190,33 @@ parentPort.postMessage(snowflakeId());
 Console output
 
 ```bash
-Worker 1 received message:
+Worker 1 generated snowflake:
 {
-  snowflake: 980668860120371201n,
+  snowflake: 1001124197361188865n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653880076199n },
+    { identifier: 'TimestampFragment', value: 1658757008639n },
     { identifier: 'WorkerFragment', value: 1 },
-    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'ProcessFragment', value: 16 },
     { identifier: 'SequenceFragment', value: 1 }
   ]
 }
-Worker 2 received message:
+Worker 2 generated snowflake:
 {
-  snowflake: 980668860128890881n,
+  snowflake: 1001124197382291457n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653880076201n },
+    { identifier: 'TimestampFragment', value: 1658757008644n },
     { identifier: 'WorkerFragment', value: 2 },
-    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'ProcessFragment', value: 16 },
     { identifier: 'SequenceFragment', value: 1 }
   ]
 }
-Worker 3 received message:
+Worker 3 generated snowflake:
 {
-  snowflake: 980668860129021953n,
+  snowflake: 1001124197378228225n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653880076201n },
+    { identifier: 'TimestampFragment', value: 1658757008643n },
     { identifier: 'WorkerFragment', value: 3 },
-    { identifier: 'ProcessFragment', value: 17 },
+    { identifier: 'ProcessFragment', value: 16 },
     { identifier: 'SequenceFragment', value: 1 }
   ]
 }
@@ -252,29 +254,29 @@ Console output
 ```bash
 Worker 1 generated snowflake:
 {
-  snowflake: 980676479111352321n,
+  snowflake: 1001124291087147009n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653881892708n },
+    { identifier: 'TimestampFragment', value: 1658757030985n },
     { identifier: 'WorkerFragment', value: 1 },
-    { identifier: 'ProcessFragment', value: 21 },
+    { identifier: 'ProcessFragment', value: 26 },
     { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 2 generated snowflake:
 {
-  snowflake: 980676479132459009n,
+  snowflake: 1001124291099865089n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653881892713n },
+    { identifier: 'TimestampFragment', value: 1658757030988n },
     { identifier: 'WorkerFragment', value: 2 },
-    { identifier: 'ProcessFragment', value: 22 },
+    { identifier: 'ProcessFragment', value: 27 },
     { identifier: 'SequenceFragment', value: 1 }
   ]
 }
 Worker 3 generated snowflake:
 {
-  snowflake: 980676479220695041n,
+  snowflake: 1001124291150331905n,
   destructuredSnowflake: [
-    { identifier: 'TimestampFragment', value: 1653881892734n },
+    { identifier: 'TimestampFragment', value: 1658757031000n },
     { identifier: 'WorkerFragment', value: 3 },
     { identifier: 'ProcessFragment', value: 28 },
     { identifier: 'SequenceFragment', value: 1 }
@@ -304,28 +306,30 @@ const snowflakify = new Snowflakify({
 });
 
 // ...
+```
 
-// Next 3 snowflake IDs generated and destructured
+Console output (next 3 snowflake IDs generated and destructured)
 
-// 1662657179066654721n
-// [
-//   { identifier: 'TimestampFragment', value: 1658712363166n },
-//   { identifier: 'WorkerFragment', value: 2 },
-//   { identifier: 'ProcessFragment', value: 22 },
-//   { identifier: 'SequenceFragment', value: 1 }
-// ]
-// 1662657179066654722n
-// [
-//   { identifier: 'TimestampFragment', value: 1658712363166n },
-//   { identifier: 'WorkerFragment', value: 2 },
-//   { identifier: 'ProcessFragment', value: 22 },
-//   { identifier: 'SequenceFragment', value: 2 }
-// ]
-// 1662657179066654723n
-// [
-//   { identifier: 'TimestampFragment', value: 1658712363166n },
-//   { identifier: 'WorkerFragment', value: 2 },
-//   { identifier: 'ProcessFragment', value: 22 },
-//   { identifier: 'SequenceFragment', value: 3 }
-// ]
+```bash
+1662657179066654721n
+[
+  { identifier: 'TimestampFragment', value: 1658712363166n },
+  { identifier: 'WorkerFragment', value: 2 },
+  { identifier: 'ProcessFragment', value: 22 },
+  { identifier: 'SequenceFragment', value: 1 }
+]
+1662657179066654722n
+[
+  { identifier: 'TimestampFragment', value: 1658712363166n },
+  { identifier: 'WorkerFragment', value: 2 },
+  { identifier: 'ProcessFragment', value: 22 },
+  { identifier: 'SequenceFragment', value: 2 }
+]
+1662657179066654723n
+[
+  { identifier: 'TimestampFragment', value: 1658712363166n },
+  { identifier: 'WorkerFragment', value: 2 },
+  { identifier: 'ProcessFragment', value: 22 },
+  { identifier: 'SequenceFragment', value: 3 }
+]
 ```

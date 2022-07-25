@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
+    "target": "ES2020",
     "module": "CommonJS",
     "lib": ["ESNext", "ESNext.asynciterable"],
     "sourceMap": true,
@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
-    // change back to false later
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
