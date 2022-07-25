@@ -32,10 +32,6 @@ export default class Snowflakify {
 
   private buffer: CircularBuffer;
 
-  servedByBuffer: number;
-
-  servedByMain: number;
-
   /**
    *
    * @remarks
@@ -60,9 +56,6 @@ export default class Snowflakify {
 
     this.updateBitShiftsAndMasks();
     this.coupleTimestampAndSequence();
-
-    this.servedByBuffer = 0;
-    this.servedByMain = 0;
   }
 
   /**
@@ -74,10 +67,8 @@ export default class Snowflakify {
    */
   nextId(): bigint {
     if (isMainThread && this.buffer && !this.buffer.isEmpty()) {
-      this.servedByBuffer += 1;
       return this.buffer.pop();
     }
-    this.servedByMain += 1;
     return this.fragments.reduce(
       (acc, fragment) => acc + (fragment.getValue() << fragment.bitShift),
       BigInt(0),
