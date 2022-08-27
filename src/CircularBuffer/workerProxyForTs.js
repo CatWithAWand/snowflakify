@@ -4,8 +4,8 @@
 // This file is needed to make worker_threads work with TypeScript
 // in a development environment.
 
-const path = require('path');
+import path from 'path';
 
-require('ts-node').register();
+import('ts-node').register();
 
-require(path.resolve(__dirname, 'worker.ts'));
+import(path.resolve(path.dirname('worker.ts')));

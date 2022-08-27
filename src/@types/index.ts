@@ -1,9 +1,9 @@
-import TimestampFragment from '../Fragments/TimestampFragment';
-import WorkerFragment from '../Fragments/WorkerFragment';
-import ProcessFragment from '../Fragments/ProcessFragment';
-import NetworkFragment from '../Fragments/NetworkFragment';
-import RandomFragment from '../Fragments/RandomFragment';
-import SequenceFragment from '../Fragments/SequenceFragment';
+import TimestampFragment from '../Fragments/TimestampFragment.js';
+import WorkerFragment from '../Fragments/WorkerFragment.js';
+import ProcessFragment from '../Fragments/ProcessFragment.js';
+import NetworkFragment from '../Fragments/NetworkFragment.js';
+import RandomFragment from '../Fragments/RandomFragment.js';
+import SequenceFragment from '../Fragments/SequenceFragment.js';
 
 export type PredefinedPreset = 'worker_process' | 'ipv4' | 'mac';
 

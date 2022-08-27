@@ -7,7 +7,7 @@ import {
   NetworkFragment,
   RandomFragment,
   SequenceFragment,
-} from '../src';
+} from '../dist';
 
 const snowflakify = new Snowflakify();
 

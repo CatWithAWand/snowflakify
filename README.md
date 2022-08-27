@@ -5,6 +5,7 @@
 </a>
 
 <p align="center">
+	<a href="https://www.npmjs.com/package/snowflakify"><img src="https://img.shields.io/npm/v/snowflakify?style=flat" alt="snowflakify - npm" /></a>
   <a href="https://catwithawand.github.io/snowflakify/"><img src="https://img.shields.io/github/deployments/CatWithAWand/snowflakify/github-pages?label=github-pages&style=flat" alt="GitHub-pages deployment" /></a>
   <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen?style=flat" alt="Commitizen friendly" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
@@ -78,7 +79,7 @@ $ pnpm add snowflakify
 Creating a new Snowflakify ID generator
 
 ```js
-const { Snowflakify } = require('snowflakify');
+import { Snowflakify } from 'snowflakify';
 
 // with default options
 const snowflakify = new Snowflakify();
@@ -113,12 +114,12 @@ snowflakify.destructure(snowflakeId);
 Creating a custom snowflake structure
 
 ```js
-const {
+import {
   Snowflakify,
   TimestampFragment,
   NetworkFragment,
   SequenceFragment,
-} = require('snowflakify');
+} from 'snowflakify';
 
 const CUSTOM_EPOCH = 1262304001000;
 
@@ -152,7 +153,7 @@ snowflakify.destructure(snowflakeId);
 index.js
 
 ```js
-const { Worker } = require('worker_threads');
+import { Worker } from 'worker_threads';
 
 const numWorkers = 3;
 
@@ -169,8 +170,8 @@ for (let i = 0; i < numWorkers; i += 1) {
 worker.js
 
 ```js
-const { parentPort } = require('node:worker_threads');
-const { Snowflakify } = require('snowflakify');
+import { parentPort } from 'worker_threads';
+import { Snowflakify } from 'snowflakify';
 
 const snowflakify = new Snowflakify();
 
@@ -229,8 +230,8 @@ Worker 3 generated snowflake:
 index.js
 
 ```js
-const cluster = require('node:cluster');
-const { Snowflakify } = require('snowflakify');
+import cluster from 'node:cluster';
+import { Snowflakify } from 'snowflakify';
 
 const numWorkers = 3;
 
@@ -289,7 +290,7 @@ Worker 3 generated snowflake:
 ## Using the Circular/Ring Buffer
 
 ```js
-const { Snowflakify } = require('snowflakify');
+import { Snowflakify } from 'snowflakify';
 
 const CUSTOM_EPOCH = 1262304001000;
 

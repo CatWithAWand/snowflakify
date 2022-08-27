@@ -1,5 +1,5 @@
-import FragmentBase from '../FragmentBase';
-import { getIPv4Address, getMacAddress } from '../Utils/Util';
+import FragmentBase from '../FragmentBase.js';
+import { getIPv4Address, getMacAddress } from '../Utils/Util.js';
 import { DestructuredFragment } from '../@types';
 
 /**
