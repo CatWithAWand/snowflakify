@@ -1,6 +1,6 @@
 import { SnowflakifyOptions } from 'src/@types';
-import { isPowerOfTwo } from '../Utils/Util';
-import CircularBufferRefiller from './CircularBufferRefiller';
+import { isPowerOfTwo } from '../Utils/Util.js';
+import CircularBufferRefiller from './CircularBufferRefiller.js';
 
 export default class CircularBuffer {
   private readonly indexBitMask: number;

@@ -1,6 +1,6 @@
 import { isMainThread, threadId } from 'worker_threads';
 import cluster from 'cluster';
-import FragmentBase from '../FragmentBase';
+import FragmentBase from '../FragmentBase.js';
 import { DestructuredFragment } from '../@types';
 
 /**

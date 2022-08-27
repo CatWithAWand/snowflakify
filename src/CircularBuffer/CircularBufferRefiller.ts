@@ -1,7 +1,8 @@
-import path from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { Worker } from 'worker_threads';
 import { SnowflakifyOptions } from 'src/@types';
-import CircularBuffer from './CircularBuffer';
+import CircularBuffer from './CircularBuffer.js';
 
 export default class CircularBufferRefiller {
   private workers: Worker[] = [];
@@ -41,10 +42,10 @@ export default class CircularBufferRefiller {
   }
 
   private createWorker(): Worker {
-    const workerFilePath = __filename.endsWith('ts')
+    const workerFilePath = fileURLToPath(import.meta.url).endsWith('ts')
       ? 'workerProxyForTs.js'
       : 'worker.js';
-    const worker = new Worker(path.resolve(__dirname, workerFilePath), {
+    const worker = new Worker(resolve(dirname(workerFilePath)), {
       workerData: {
         buffer: this.buffer,
         generatorOptions: this.generatorOptions,

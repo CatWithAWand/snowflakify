@@ -6,10 +6,10 @@
  * @packageDocumentation
  */
 
-export { default as Snowflakify } from './Snowflakify';
-export { default as TimestampFragment } from './Fragments/TimestampFragment';
-export { default as WorkerFragment } from './Fragments/WorkerFragment';
-export { default as ProcessFragment } from './Fragments/ProcessFragment';
-export { default as NetworkFragment } from './Fragments/NetworkFragment';
-export { default as RandomFragment } from './Fragments/RandomFragment';
-export { default as SequenceFragment } from './Fragments/SequenceFragment';
+export { default as Snowflakify } from './Snowflakify.js';
+export { default as TimestampFragment } from './Fragments/TimestampFragment.js';
+export { default as WorkerFragment } from './Fragments/WorkerFragment.js';
+export { default as ProcessFragment } from './Fragments/ProcessFragment.js';
+export { default as NetworkFragment } from './Fragments/NetworkFragment.js';
+export { default as RandomFragment } from './Fragments/RandomFragment.js';
+export { default as SequenceFragment } from './Fragments/SequenceFragment.js';

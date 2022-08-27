@@ -1,4 +1,4 @@
-import FragmentBase from '../FragmentBase';
+import FragmentBase from '../FragmentBase.js';
 import { DestructuredFragment } from '../@types';
 
 /**

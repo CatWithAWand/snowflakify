@@ -1,9 +1,9 @@
 import { isMainThread } from 'worker_threads';
 import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@types';
-import TimestampFragment from './Fragments/TimestampFragment';
-import SequenceFragment from './Fragments/SequenceFragment';
-import Options from './Utils/Options';
-import CircularBuffer from './CircularBuffer/CircularBuffer';
+import TimestampFragment from './Fragments/TimestampFragment.js';
+import SequenceFragment from './Fragments/SequenceFragment.js';
+import Options from './Utils/Options.js';
+import CircularBuffer from './CircularBuffer/CircularBuffer.js';
 
 /**
  * Snowflakify class for generating snowflake IDs.
