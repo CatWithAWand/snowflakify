@@ -112,6 +112,7 @@ export default class Snowflakify {
    */
   private updateBitShiftsAndMasks(): void {
     let remainingBits = this.totalBits;
+
     this.fragments.forEach((fragment) => {
       remainingBits -= fragment.bits;
       fragment.setBitShiftAndBitMask(remainingBits);

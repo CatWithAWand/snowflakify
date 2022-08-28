@@ -70,34 +70,20 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">snowflakify</a></li>
-            <li>
-              <a href="../modules/Fragments_NetworkFragment.html"
-                >Fragments/NetworkFragment</a
-              >
-            </li>
-            <li><a href="Fragments_NetworkFragment.default.html">default</a></li>
+            <li><a href="../modules/Snowflakify.html">Snowflakify</a></li>
+            <li><a href="Snowflakify.default.html">default</a></li>
           </ul>
           <h1>Class default</h1>
         </div>
         <section class="tsd-panel tsd-comment">
           <div class="tsd-comment tsd-typography">
-            <p>NetworkFragment class for network IDs.</p>
+            <p>Snowflakify class for generating snowflake IDs.</p>
           </div>
         </section>
         <section class="tsd-panel tsd-hierarchy">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
-            <li>
-              <a
-                href="FragmentBase.default.html"
-                class="tsd-signature-type"
-                data-tsd-kind="Class"
-                >default</a
-              >
-              <ul class="tsd-hierarchy">
-                <li><span class="target">default</span></li>
-              </ul>
-            </li>
+            <li><span class="target">default</span></li>
           </ul>
         </section>
         <aside class="tsd-sources">
@@ -105,8 +91,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L9"
-                >Fragments/NetworkFragment.ts:9</a
+                href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L12"
+                >Snowflakify.ts:12</a
               >
             </li>
           </ul>
@@ -135,7 +121,7 @@
                   <h3 class="tsd-index-heading">Constructors</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Fragments_NetworkFragment.default.html#constructor"
+                      href="Snowflakify.default.html#constructor"
                       class="tsd-index-link tsd-kind-constructor tsd-parent-kind-class"
                       ><svg
                         class="tsd-kind-icon"
@@ -167,8 +153,8 @@
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Fragments_NetworkFragment.default.html#bitMask"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
+                      href="Snowflakify.default.html#buffer"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -191,75 +177,10 @@
                           fill="var(--color-text)"
                           id="icon-1024-text"
                         ></path></svg
-                      ><span>bit<wbr />Mask</span></a
+                      ><span>buffer</span></a
                     >
                     <a
-                      href="Fragments_NetworkFragment.default.html#bitMaskHex"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-1024-path"></use>
-                        <use href="#icon-1024-text"></use></svg
-                      ><span>bit<wbr />Mask<wbr />Hex</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#bitShift"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-1024-path"></use>
-                        <use href="#icon-1024-text"></use></svg
-                      ><span>bit<wbr />Shift</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#bits"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-1024-path"></use>
-                        <use href="#icon-1024-text"></use></svg
-                      ><span>bits</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#identifier"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-1024-path"></use>
-                        <use href="#icon-1024-text"></use></svg
-                      ><span>identifier</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#maxValue"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-1024-path"></use>
-                        <use href="#icon-1024-text"></use></svg
-                      ><span>max<wbr />Value</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#networkAddress"
+                      href="Snowflakify.default.html#fragments"
                       class="tsd-index-link tsd-kind-property tsd-parent-kind-class"
                       ><svg
                         class="tsd-kind-icon"
@@ -269,11 +190,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>network<wbr />Address</span></a
+                      ><span>fragments</span></a
                     >
                     <a
-                      href="Fragments_NetworkFragment.default.html#value"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
+                      href="Snowflakify.default.html#totalBits"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -282,7 +203,7 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>value</span></a
+                      ><span>total<wbr />Bits</span></a
                     >
                   </div>
                 </section>
@@ -290,8 +211,8 @@
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Fragments_NetworkFragment.default.html#destructure"
-                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      href="Snowflakify.default.html#coupleTimestampAndSequence"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-private"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -314,10 +235,51 @@
                           fill="var(--color-text)"
                           id="icon-2048-text"
                         ></path></svg
+                      ><span
+                        >couple<wbr />Timestamp<wbr />And<wbr />Sequence</span
+                      ></a
+                    >
+                    <a
+                      href="Snowflakify.default.html#destructure"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
                       ><span>destructure</span></a
                     >
                     <a
-                      href="Fragments_NetworkFragment.default.html#getNetworkId"
+                      href="Snowflakify.default.html#getBuffer"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>get<wbr />Buffer</span></a
+                    >
+                    <a
+                      href="Snowflakify.default.html#nextId"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-2048-path"></use>
+                        <use href="#icon-2048-text"></use></svg
+                      ><span>next<wbr />Id</span></a
+                    >
+                    <a
+                      href="Snowflakify.default.html#resolveOptions"
                       class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-private"
                       ><svg
                         class="tsd-kind-icon"
@@ -327,24 +289,11 @@
                       >
                         <use href="#icon-2048-path"></use>
                         <use href="#icon-2048-text"></use></svg
-                      ><span>get<wbr />Network<wbr />Id</span></a
+                      ><span>resolve<wbr />Options</span></a
                     >
                     <a
-                      href="Fragments_NetworkFragment.default.html#getValue"
-                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-2048-path"></use>
-                        <use href="#icon-2048-text"></use></svg
-                      ><span>get<wbr />Value</span></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#setBitShiftAndBitMask"
-                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"
+                      href="Snowflakify.default.html#updateBitShiftsAndMasks"
+                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-private"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -354,21 +303,8 @@
                         <use href="#icon-2048-path"></use>
                         <use href="#icon-2048-text"></use></svg
                       ><span
-                        >set<wbr />Bit<wbr />Shift<wbr />And<wbr />Bit<wbr />Mask</span
+                        >update<wbr />Bit<wbr />Shifts<wbr />And<wbr />Masks</span
                       ></a
-                    >
-                    <a
-                      href="Fragments_NetworkFragment.default.html#updateId"
-                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <use href="#icon-2048-path"></use>
-                        <use href="#icon-2048-text"></use></svg
-                      ><span>update<wbr />Id</span></a
                     >
                   </div>
                 </section>
@@ -412,19 +348,18 @@
             </h3>
             <ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
               <li class="tsd-signature tsd-anchor-link" id="constructor.new_default">
-                new default<span class="tsd-signature-symbol">(</span>bits<span
-                  class="tsd-signature-symbol"
-                  >: </span
-                ><span class="tsd-signature-type">number</span>, networkAddress<span
+                new default<span class="tsd-signature-symbol">(</span>options<span
                   class="tsd-signature-symbol"
                   >?: </span
-                ><span class="tsd-signature-type">&quot;ipv4&quot;</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">&quot;mac&quot;</span
+                ><a
+                  href="../types/_types.SnowflakifyOptions.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >SnowflakifyOptions</a
                 ><span class="tsd-signature-symbol">)</span
                 ><span class="tsd-signature-symbol">: </span
                 ><a
-                  href="Fragments_NetworkFragment.default.html"
+                  href="Snowflakify.default.html"
                   class="tsd-signature-type"
                   data-tsd-kind="Class"
                   >default</a
@@ -448,36 +383,45 @@
               </li>
               <li class="tsd-description">
                 <div class="tsd-comment tsd-typography">
-                  <h3>Throws</h3>
-                  <p>
-                    <code>[NETWORK_ADDRESS_INVALID]</code> If networkAddress is not
-                    &quot;ipv4&quot; or &quot;mac&quot;.
-                  </p>
+                  <h3>Remarks</h3>
+                  <p>A Snowflakify instance must follow the following conditions:</p>
+                  <ul>
+                    <li>At least one TimestampFragment or RandomFragment.</li>
+                    <li>
+                      A RandomFragment must be coupled with at least one
+                      TimestampFragment or SequenceFragment.
+                    </li>
+                  </ul>
                 </div>
                 <div class="tsd-parameters">
                   <h4 class="tsd-parameters-title">Parameters</h4>
                   <ul class="tsd-parameter-list">
                     <li>
-                      <h5>bits: <span class="tsd-signature-type">number</span></h5>
-                      <div class="tsd-comment tsd-typography">
-                        <p>The number of bits for the fragment.</p>
-                      </div>
-                    </li>
-                    <li>
                       <h5>
-                        networkAddress:
-                        <span class="tsd-signature-type">&quot;ipv4&quot;</span
-                        ><span class="tsd-signature-symbol"> | </span
-                        ><span class="tsd-signature-type">&quot;mac&quot;</span
-                        ><span class="tsd-signature-symbol"> = &#39;ipv4&#39;</span>
+                        <code class="tsd-tag ts-flagOptional">Optional</code>
+                        options:
+                        <a
+                          href="../types/_types.SnowflakifyOptions.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >SnowflakifyOptions</a
+                        >
                       </h5>
                       <div class="tsd-comment tsd-typography">
+                        <p>Optional parameter for specifying Snowflakify options.</p>
                         <p>
-                          The type of network address to use,
-                          <code>&quot;ipv4&quot;</code> or
-                          <code>&quot;mac&quot;</code>.
+                          Can be an array of fragments or an object with the
+                          following properties:
                         </p>
-                        <p>Defaults to <code>&quot;ipv4&quot;</code> if omitted.</p>
+                        <ul>
+                          <li><code>epoch</code>: A custom epoch timestamp.</li>
+                          <li>
+                            <code>preset</code>:
+                            <code>&quot;worker_process&quot;</code>,
+                            <code>&quot;ipv4&quot;</code>, or
+                            <code>&quot;mac&quot;</code>
+                          </li>
+                        </ul>
                       </div>
                     </li>
                   </ul>
@@ -485,25 +429,19 @@
                 <h4 class="tsd-returns-title">
                   Returns
                   <a
-                    href="Fragments_NetworkFragment.default.html"
+                    href="Snowflakify.default.html"
                     class="tsd-signature-type"
                     data-tsd-kind="Class"
                     >default</a
                   >
                 </h4>
                 <aside class="tsd-sources">
-                  <p>
-                    Overrides <a href="FragmentBase.default.html">default</a>.<a
-                      href="FragmentBase.default.html#constructor"
-                      >constructor</a
-                    >
-                  </p>
                   <ul>
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L18"
-                        >Fragments/NetworkFragment.ts:18</a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L49"
+                        >Snowflakify.ts:49</a
                       >
                     </li>
                   </ul>
@@ -515,12 +453,12 @@
         <section class="tsd-panel-group tsd-member-group">
           <h2>Properties</h2>
           <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"
           >
-            <a id="bitMask" class="tsd-anchor"></a>
+            <a id="buffer" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
-              <span>bit<wbr />Mask</span
-              ><a href="#bitMask" aria-label="Permalink" class="tsd-anchor-icon"
+              <code class="tsd-tag ts-flagPrivate">Private</code> <span>buffer</span
+              ><a href="#buffer" aria-label="Permalink" class="tsd-anchor-icon"
                 ><svg
                   class="icon icon-tabler icon-tabler-link"
                   viewBox="0 0 24 24"
@@ -536,259 +474,21 @@
               ></a>
             </h3>
             <div class="tsd-signature">
-              bit<wbr />Mask<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">bigint</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>
-                The bit mask used to isolate the fragment&#39;s bits from the
-                snowflake.
-              </p>
-              <p>bitMask is equal to <code>maxValue &lt;&lt; bitShift</code></p>
+              buffer<span class="tsd-signature-symbol">:</span>
+              <a
+                href="CircularBuffer_CircularBuffer.default.html"
+                class="tsd-signature-type"
+                data-tsd-kind="Class"
+                >default</a
+              >
             </div>
             <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#bitMask"
-                  >bitMask</a
-                >
-              </p>
               <ul>
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L32"
-                    >FragmentBase.ts:32</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="bitMaskHex" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>bit<wbr />Mask<wbr />Hex</span
-              ><a href="#bitMaskHex" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              bit<wbr />Mask<wbr />Hex<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">string</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>The hexadecimal representation of the bit mask as string.</p>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#bitMaskHex"
-                  >bitMaskHex</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L37"
-                    >FragmentBase.ts:37</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="bitShift" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>bit<wbr />Shift</span
-              ><a href="#bitShift" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              bit<wbr />Shift<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">bigint</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>The number of bits for left and right shifting.</p>
-              <p>bitShift is equal to the number of bits on the right side</p>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#bitShift"
-                  >bitShift</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L25"
-                    >FragmentBase.ts:25</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="bits" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>bits</span
-              ><a href="#bits" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              bits<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">number</span>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#bits"
-                  >bits</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L50"
-                    >FragmentBase.ts:50</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="identifier" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>identifier</span
-              ><a href="#identifier" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              identifier<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">string</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>The fragment identifier.</p>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#identifier"
-                  >identifier</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L42"
-                    >FragmentBase.ts:42</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="maxValue" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagReadonly">Readonly</code>
-              <span>max<wbr />Value</span
-              ><a href="#maxValue" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              max<wbr />Value<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">bigint</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>The maximum value that can be represented by this fragment.</p>
-              <p>maxValue is equal to <code>2 ** bits - 1</code></p>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#maxValue"
-                  >maxValue</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L18"
-                    >FragmentBase.ts:18</a
+                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L33"
+                    >Snowflakify.ts:33</a
                   >
                 </li>
               </ul>
@@ -797,12 +497,111 @@
           <section
             class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"
           >
-            <a id="networkAddress" class="tsd-anchor"></a>
+            <a id="fragments" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
               <code class="tsd-tag ts-flagReadonly">Readonly</code>
-              <span>network<wbr />Address</span
+              <span>fragments</span
+              ><a href="#fragments" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              fragments<span class="tsd-signature-symbol">:</span>
+              <a
+                href="../types/_types.FragmentArray.html"
+                class="tsd-signature-type"
+                data-tsd-kind="Type alias"
+                >FragmentArray</a
+              >
+            </div>
+            <div class="tsd-comment tsd-typography">
+              <p>Array of fragments used to generate snowflake IDs.</p>
+
+              <h3>Remarks</h3>
+              <p>When reading this array outside of a Snowflakify class:</p>
+              <ul>
+                <li>Do not call fragments methods.</li>
+                <li>Do not add or remove fragments.</li>
+                <li>Do not reorder fragments.</li>
+                <li>Do not modify this array.</li>
+              </ul>
+            </div>
+            <aside class="tsd-sources">
+              <ul>
+                <li>
+                  Defined in
+                  <a
+                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L31"
+                    >Snowflakify.ts:31</a
+                  >
+                </li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"
+          >
+            <a id="totalBits" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagReadonly">Readonly</code>
+              <span>total<wbr />Bits</span
+              ><a href="#totalBits" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              total<wbr />Bits<span class="tsd-signature-symbol">:</span>
+              <span class="tsd-signature-type">number</span>
+            </div>
+            <div class="tsd-comment tsd-typography">
+              <p>Total number of bits in the snowflake ID.</p>
+            </div>
+            <aside class="tsd-sources">
+              <ul>
+                <li>
+                  Defined in
+                  <a
+                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L17"
+                    >Snowflakify.ts:17</a
+                  >
+                </li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section class="tsd-panel-group tsd-member-group">
+          <h2>Methods</h2>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private"
+          >
+            <a id="coupleTimestampAndSequence" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagPrivate">Private</code>
+              <span>couple<wbr />Timestamp<wbr />And<wbr />Sequence</span
               ><a
-                href="#networkAddress"
+                href="#coupleTimestampAndSequence"
                 aria-label="Permalink"
                 class="tsd-anchor-icon"
                 ><svg
@@ -819,74 +618,56 @@
                   <use href="#icon-anchor-c"></use></svg
               ></a>
             </h3>
-            <div class="tsd-signature">
-              network<wbr />Address<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">&quot;ipv4&quot;</span
-              ><span class="tsd-signature-symbol"> | </span
-              ><span class="tsd-signature-type">&quot;mac&quot;</span
-              ><span class="tsd-signature-symbol"> = &#39;ipv4&#39;</span>
-            </div>
-            <aside class="tsd-sources">
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L18"
-                    >Fragments/NetworkFragment.ts:18</a
+            <ul
+              class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private"
+            >
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="coupleTimestampAndSequence.coupleTimestampAndSequence-1"
+              >
+                couple<wbr />Timestamp<wbr />And<wbr />Sequence<span
+                  class="tsd-signature-symbol"
+                  >(</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">void</span
+                ><a
+                  href="#coupleTimestampAndSequence.coupleTimestampAndSequence-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                </li>
-              </ul>
-            </aside>
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <code class="tsd-tag ts-flagInternal">Internal</code>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">void</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L125"
+                        >Snowflakify.ts:125</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
           </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="value" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>value</span
-              ><a href="#value" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              value<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">bigint</span>
-            </div>
-            <div class="tsd-comment tsd-typography">
-              <p>The current value of the fragment.</p>
-            </div>
-            <aside class="tsd-sources">
-              <p>
-                Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                  href="FragmentBase.default.html#value"
-                  >value</a
-                >
-              </p>
-              <ul>
-                <li>
-                  Defined in
-                  <a
-                    href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L10"
-                    >FragmentBase.ts:10</a
-                  >
-                </li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section class="tsd-panel-group tsd-member-group">
-          <h2>Methods</h2>
           <section
             class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
           >
@@ -928,6 +709,7 @@
                   class="tsd-signature-type"
                   data-tsd-kind="Interface"
                   >DestructuredFragment</a
+                ><span class="tsd-signature-symbol">[]</span
                 ><a
                   href="#destructure.destructure-1"
                   aria-label="Permalink"
@@ -947,24 +729,17 @@
                 ></a>
               </li>
               <li class="tsd-description">
-                <code class="tsd-tag ts-flagInternal">Internal</code>
                 <div class="tsd-comment tsd-typography">
-                  <p>Returns a destructured fragment.</p>
-
-                  <h3>Remarks</h3>
-                  <p>Do not use this method outside of a Snowflakify instance.</p>
+                  <p>Returns a destructured snowflake.</p>
 
                   <h3>Returns</h3>
+                  <p>An array of destructured fragments.</p>
+
+                  <h3>Throws</h3>
                   <p>
-                    A destructured fragment object with the following properties:
+                    <code>[SNOWFLAKE_INVALID]</code> If snowflake is not a number,
+                    bigint, or string of a positive number.
                   </p>
-                  <ul>
-                    <li><code>identifier</code>: The identifier of the ID.</li>
-                    <li>
-                      <code>value</code>: The value of the fragment for that
-                      snowflake.
-                    </li>
-                  </ul>
                 </div>
                 <div class="tsd-parameters">
                   <h4 class="tsd-parameters-title">Parameters</h4>
@@ -978,7 +753,7 @@
                         ><span class="tsd-signature-type">bigint</span>
                       </h5>
                       <div class="tsd-comment tsd-typography">
-                        <p>The snowflake to destructure.</p>
+                        <p>The snowflake to be destructured.</p>
                       </div>
                     </li>
                   </ul>
@@ -990,21 +765,156 @@
                     class="tsd-signature-type"
                     data-tsd-kind="Interface"
                     >DestructuredFragment</a
-                  >
+                  ><span class="tsd-signature-symbol">[]</span>
                 </h4>
                 <aside class="tsd-sources">
-                  <p>
-                    Overrides <a href="FragmentBase.default.html">default</a>.<a
-                      href="FragmentBase.default.html#destructure"
-                      >destructure</a
-                    >
-                  </p>
                   <ul>
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L33"
-                        >Fragments/NetworkFragment.ts:33</a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L89"
+                        >Snowflakify.ts:89</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="getBuffer" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>get<wbr />Buffer</span
+              ><a href="#getBuffer" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li class="tsd-signature tsd-anchor-link" id="getBuffer.getBuffer-1">
+                get<wbr />Buffer<span class="tsd-signature-symbol">(</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">BigInt64Array</span
+                ><a
+                  href="#getBuffer.getBuffer-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-comment tsd-typography">
+                  <p>Returns the buffers content.</p>
+
+                  <h3>Returns</h3>
+                  <p>An array of snowflake IDs.</p>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">BigInt64Array</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L106"
+                        >Snowflakify.ts:106</a
+                      >
+                    </li>
+                  </ul>
+                </aside>
+              </li>
+            </ul>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+          >
+            <a id="nextId" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <span>next<wbr />Id</span
+              ><a href="#nextId" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+              <li class="tsd-signature tsd-anchor-link" id="nextId.nextId-1">
+                next<wbr />Id<span class="tsd-signature-symbol">(</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">: </span
+                ><span class="tsd-signature-type">bigint</span
+                ><a
+                  href="#nextId.nextId-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <use href="#icon-anchor-a"></use>
+                    <use href="#icon-anchor-b"></use>
+                    <use href="#icon-anchor-c"></use></svg
+                ></a>
+              </li>
+              <li class="tsd-description">
+                <div class="tsd-comment tsd-typography">
+                  <p>Returns a snowflake ID.</p>
+
+                  <h3>Returns</h3>
+                  <p>
+                    The sum of all fragments values shifted to the left by their
+                    bitShift.
+                  </p>
+                </div>
+                <h4 class="tsd-returns-title">
+                  Returns <span class="tsd-signature-type">bigint</span>
+                </h4>
+                <aside class="tsd-sources">
+                  <ul>
+                    <li>
+                      Defined in
+                      <a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L68"
+                        >Snowflakify.ts:68</a
                       >
                     </li>
                   </ul>
@@ -1015,11 +925,14 @@
           <section
             class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private"
           >
-            <a id="getNetworkId" class="tsd-anchor"></a>
+            <a id="resolveOptions" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
               <code class="tsd-tag ts-flagPrivate">Private</code>
-              <span>get<wbr />Network<wbr />Id</span
-              ><a href="#getNetworkId" aria-label="Permalink" class="tsd-anchor-icon"
+              <span>resolve<wbr />Options</span
+              ><a
+                href="#resolveOptions"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
                 ><svg
                   class="icon icon-tabler icon-tabler-link"
                   viewBox="0 0 24 24"
@@ -1039,181 +952,24 @@
             >
               <li
                 class="tsd-signature tsd-anchor-link"
-                id="getNetworkId.getNetworkId-1"
+                id="resolveOptions.resolveOptions-1"
               >
-                get<wbr />Network<wbr />Id<span class="tsd-signature-symbol">(</span
+                resolve<wbr />Options<span class="tsd-signature-symbol">(</span
+                >options<span class="tsd-signature-symbol">?: </span
+                ><a
+                  href="../types/_types.SnowflakifyOptions.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >SnowflakifyOptions</a
                 ><span class="tsd-signature-symbol">)</span
                 ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">bigint</span
                 ><a
-                  href="#getNetworkId.getNetworkId-1"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg
-                    class="icon icon-tabler icon-tabler-link"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <use href="#icon-anchor-a"></use>
-                    <use href="#icon-anchor-b"></use>
-                    <use href="#icon-anchor-c"></use></svg
-                ></a>
-              </li>
-              <li class="tsd-description">
-                <code class="tsd-tag ts-flagInternal">Internal</code>
-                <div class="tsd-comment tsd-typography">
-                  <p>Returns the network ID.</p>
-
-                  <h3>Remarks</h3>
-                  <p>
-                    The value is masked by the maxValue to fit in the fragment&#39;s
-                    bits.
-                  </p>
-
-                  <h3>Returns</h3>
-                  <p>
-                    The network ID of the machine based on a non internal network
-                    address.
-                  </p>
-                </div>
-                <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">bigint</span>
-                </h4>
-                <aside class="tsd-sources">
-                  <ul>
-                    <li>
-                      Defined in
-                      <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L55"
-                        >Fragments/NetworkFragment.ts:55</a
-                      >
-                    </li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
-          >
-            <a id="getValue" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>get<wbr />Value</span
-              ><a href="#getValue" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-              <li class="tsd-signature tsd-anchor-link" id="getValue.getValue-1">
-                get<wbr />Value<span class="tsd-signature-symbol">(</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">bigint</span
+                  href="../types/_types.FragmentArray.html"
+                  class="tsd-signature-type"
+                  data-tsd-kind="Type alias"
+                  >FragmentArray</a
                 ><a
-                  href="#getValue.getValue-1"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg
-                    class="icon icon-tabler icon-tabler-link"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <use href="#icon-anchor-a"></use>
-                    <use href="#icon-anchor-b"></use>
-                    <use href="#icon-anchor-c"></use></svg
-                ></a>
-              </li>
-              <li class="tsd-description">
-                <code class="tsd-tag ts-flagInternal">Internal</code>
-                <div class="tsd-comment tsd-typography">
-                  <p>Returns the value for the fragment.</p>
-
-                  <h3>Remarks</h3>
-                  <p>Do not use this method outside of a Snowflakify instance.</p>
-                </div>
-                <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">bigint</span>
-                </h4>
-                <aside class="tsd-sources">
-                  <p>
-                    Overrides <a href="FragmentBase.default.html">default</a>.<a
-                      href="FragmentBase.default.html#getValue"
-                      >getValue</a
-                    >
-                  </p>
-                  <ul>
-                    <li>
-                      Defined in
-                      <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L29"
-                        >Fragments/NetworkFragment.ts:29</a
-                      >
-                    </li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"
-          >
-            <a id="setBitShiftAndBitMask" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>set<wbr />Bit<wbr />Shift<wbr />And<wbr />Bit<wbr />Mask</span
-              ><a
-                href="#setBitShiftAndBitMask"
-                aria-label="Permalink"
-                class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <ul
-              class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited"
-            >
-              <li
-                class="tsd-signature tsd-anchor-link"
-                id="setBitShiftAndBitMask.setBitShiftAndBitMask-1"
-              >
-                set<wbr />Bit<wbr />Shift<wbr />And<wbr />Bit<wbr />Mask<span
-                  class="tsd-signature-symbol"
-                  >(</span
-                >bitsRightSide<span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">number</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">void</span
-                ><a
-                  href="#setBitShiftAndBitMask.setBitShiftAndBitMask-1"
+                  href="#resolveOptions.resolveOptions-1"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg
@@ -1237,27 +993,34 @@
                   <ul class="tsd-parameter-list">
                     <li>
                       <h5>
-                        bitsRightSide: <span class="tsd-signature-type">number</span>
+                        <code class="tsd-tag ts-flagOptional">Optional</code>
+                        options:
+                        <a
+                          href="../types/_types.SnowflakifyOptions.html"
+                          class="tsd-signature-type"
+                          data-tsd-kind="Type alias"
+                          >SnowflakifyOptions</a
+                        >
                       </h5>
                     </li>
                   </ul>
                 </div>
                 <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">void</span>
+                  Returns
+                  <a
+                    href="../types/_types.FragmentArray.html"
+                    class="tsd-signature-type"
+                    data-tsd-kind="Type alias"
+                    >FragmentArray</a
+                  >
                 </h4>
                 <aside class="tsd-sources">
-                  <p>
-                    Inherited from <a href="FragmentBase.default.html">default</a>.<a
-                      href="FragmentBase.default.html#setBitShiftAndBitMask"
-                      >setBitShiftAndBitMask</a
-                    >
-                  </p>
                   <ul>
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/FragmentBase.ts#L92"
-                        >FragmentBase.ts:92</a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L141"
+                        >Snowflakify.ts:141</a
                       >
                     </li>
                   </ul>
@@ -1266,12 +1029,16 @@
             </ul>
           </section>
           <section
-            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
+            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private"
           >
-            <a id="updateId" class="tsd-anchor"></a>
+            <a id="updateBitShiftsAndMasks" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
-              <span>update<wbr />Id</span
-              ><a href="#updateId" aria-label="Permalink" class="tsd-anchor-icon"
+              <code class="tsd-tag ts-flagPrivate">Private</code>
+              <span>update<wbr />Bit<wbr />Shifts<wbr />And<wbr />Masks</span
+              ><a
+                href="#updateBitShiftsAndMasks"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
                 ><svg
                   class="icon icon-tabler icon-tabler-link"
                   viewBox="0 0 24 24"
@@ -1286,14 +1053,21 @@
                   <use href="#icon-anchor-c"></use></svg
               ></a>
             </h3>
-            <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-              <li class="tsd-signature tsd-anchor-link" id="updateId.updateId-1">
-                update<wbr />Id<span class="tsd-signature-symbol">(</span
+            <ul
+              class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private"
+            >
+              <li
+                class="tsd-signature tsd-anchor-link"
+                id="updateBitShiftsAndMasks.updateBitShiftsAndMasks-1"
+              >
+                update<wbr />Bit<wbr />Shifts<wbr />And<wbr />Masks<span
+                  class="tsd-signature-symbol"
+                  >(</span
                 ><span class="tsd-signature-symbol">)</span
                 ><span class="tsd-signature-symbol">: </span
                 ><span class="tsd-signature-type">void</span
                 ><a
-                  href="#updateId.updateId-1"
+                  href="#updateBitShiftsAndMasks.updateBitShiftsAndMasks-1"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg
@@ -1311,6 +1085,7 @@
                 ></a>
               </li>
               <li class="tsd-description">
+                <code class="tsd-tag ts-flagInternal">Internal</code>
                 <h4 class="tsd-returns-title">
                   Returns <span class="tsd-signature-type">void</span>
                 </h4>
@@ -1319,8 +1094,8 @@
                     <li>
                       Defined in
                       <a
-                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Fragments/NetworkFragment.ts#L42"
-                        >Fragments/NetworkFragment.ts:42</a
+                        href="https://github.com/CatWithAWand/snowflakify/blob/e43f769/src/Snowflakify.ts#L113"
+                        >Snowflakify.ts:113</a
                       >
                     </li>
                   </ul>
@@ -1499,7 +1274,7 @@
                     <li class="tsd-kind-module">
                       <a href="../modules/FragmentBase.html">Fragment<wbr />Base</a>
                     </li>
-                    <li class="current tsd-kind-module">
+                    <li class="tsd-kind-module">
                       <a href="../modules/Fragments_NetworkFragment.html"
                         >Fragments/<wbr />Network<wbr />Fragment</a
                       >
@@ -1529,7 +1304,7 @@
                         >Fragments/<wbr />Worker<wbr />Fragment</a
                       >
                     </li>
-                    <li class="tsd-kind-module">
+                    <li class="current tsd-kind-module">
                       <a href="../modules/Snowflakify.html">Snowflakify</a>
                     </li>
                     <li class="tsd-kind-module">
@@ -1552,7 +1327,7 @@
         <nav class="tsd-navigation secondary menu-sticky">
           <ul>
             <li class="current tsd-kind-class tsd-parent-kind-module">
-              <a href="Fragments_NetworkFragment.default.html" class="tsd-index-link"
+              <a href="Snowflakify.default.html" class="tsd-index-link"
                 ><svg
                   class="tsd-kind-icon"
                   width="24"
@@ -1580,7 +1355,7 @@
               <ul>
                 <li class="tsd-kind-constructor tsd-parent-kind-class">
                   <a
-                    href="Fragments_NetworkFragment.default.html#constructor"
+                    href="Snowflakify.default.html#constructor"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1593,10 +1368,8 @@
                     >constructor</a
                   >
                 </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#bitMask"
-                    class="tsd-index-link"
+                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private">
+                  <a href="Snowflakify.default.html#buffer" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1605,88 +1378,11 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >bit<wbr />Mask</a
-                  >
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#bitMaskHex"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >bit<wbr />Mask<wbr />Hex</a
-                  >
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#bitShift"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >bit<wbr />Shift</a
-                  >
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#bits"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >bits</a
-                  >
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#identifier"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >identifier</a
-                  >
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#maxValue"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >max<wbr />Value</a
+                    >buffer</a
                   >
                 </li>
                 <li class="tsd-kind-property tsd-parent-kind-class">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#networkAddress"
-                    class="tsd-index-link"
+                  <a href="Snowflakify.default.html#fragments" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1695,13 +1391,11 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >network<wbr />Address</a
+                    >fragments</a
                   >
                 </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#value"
-                    class="tsd-index-link"
+                <li class="tsd-kind-property tsd-parent-kind-class">
+                  <a href="Snowflakify.default.html#totalBits" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1710,12 +1404,27 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >value</a
+                    >total<wbr />Bits</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private">
+                  <a
+                    href="Snowflakify.default.html#coupleTimestampAndSequence"
+                    class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >couple<wbr />Timestamp<wbr />And<wbr />Sequence</a
                   >
                 </li>
                 <li class="tsd-kind-method tsd-parent-kind-class">
                   <a
-                    href="Fragments_NetworkFragment.default.html#destructure"
+                    href="Snowflakify.default.html#destructure"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1728,9 +1437,35 @@
                     >destructure</a
                   >
                 </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a href="Snowflakify.default.html#getBuffer" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >get<wbr />Buffer</a
+                  >
+                </li>
+                <li class="tsd-kind-method tsd-parent-kind-class">
+                  <a href="Snowflakify.default.html#nextId" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-2048-path"></use>
+                      <use href="#icon-2048-text"></use></svg
+                    >next<wbr />Id</a
+                  >
+                </li>
                 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private">
                   <a
-                    href="Fragments_NetworkFragment.default.html#getNetworkId"
+                    href="Snowflakify.default.html#resolveOptions"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1740,12 +1475,12 @@
                     >
                       <use href="#icon-2048-path"></use>
                       <use href="#icon-2048-text"></use></svg
-                    >get<wbr />Network<wbr />Id</a
+                    >resolve<wbr />Options</a
                   >
                 </li>
-                <li class="tsd-kind-method tsd-parent-kind-class">
+                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private">
                   <a
-                    href="Fragments_NetworkFragment.default.html#getValue"
+                    href="Snowflakify.default.html#updateBitShiftsAndMasks"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1755,37 +1490,7 @@
                     >
                       <use href="#icon-2048-path"></use>
                       <use href="#icon-2048-text"></use></svg
-                    >get<wbr />Value</a
-                  >
-                </li>
-                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#setBitShiftAndBitMask"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-2048-path"></use>
-                      <use href="#icon-2048-text"></use></svg
-                    >set<wbr />Bit<wbr />Shift<wbr />And<wbr />Bit<wbr />Mask</a
-                  >
-                </li>
-                <li class="tsd-kind-method tsd-parent-kind-class">
-                  <a
-                    href="Fragments_NetworkFragment.default.html#updateId"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-2048-path"></use>
-                      <use href="#icon-2048-text"></use></svg
-                    >update<wbr />Id</a
+                    >update<wbr />Bit<wbr />Shifts<wbr />And<wbr />Masks</a
                   >
                 </li>
               </ul>
