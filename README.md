@@ -111,6 +111,13 @@ snowflakify.destructure(snowflakeId);
 // ]
 ```
 
+Hexadecimal snowflake ID
+
+```js
+const id = snowflakify.nextHexId();
+snowflakify.destructureHex(id);
+```
+
 Creating a custom snowflake structure
 
 ```js
