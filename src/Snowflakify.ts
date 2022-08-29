@@ -97,6 +97,33 @@ export default class Snowflakify {
   }
 
   /**
+   * Returns a snowflake ID as Hexadecimal.
+   *
+   * @returns a snowflake ID converted to Hexadecimal
+   *
+   * @public
+   */
+  nextHexId(): string {
+    return this.nextId().toString(16);
+  }
+
+  /**
+   * Returns a destructured snowflake.
+   *
+   * @param snowflake - The hexadecimal snowflake to be destructured.
+   *
+   * @returns An array of destructured fragments.
+   *
+   * @throws SyntaxError if snowflake is not a hexadecimal number.
+   *
+   * @public
+   */
+  destructureHex(snowflake: string): DestructuredFragment[] {
+    const id = BigInt(`0x${snowflake}`);
+    return this.destructure(id);
+  }
+
+  /**
    * Returns the buffers content.
    *
    * @returns An array of snowflake IDs.
