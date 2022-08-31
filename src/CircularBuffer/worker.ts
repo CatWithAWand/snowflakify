@@ -1,12 +1,13 @@
 import { parentPort, workerData } from 'worker_threads';
-import { SnowflakifyFragment } from 'src/@types';
-import Snowflakify from '../Snowflakify.js';
-import TimestampFragment from '../Fragments/TimestampFragment.js';
-import WorkerFragment from '../Fragments/WorkerFragment.js';
-import ProcessFragment from '../Fragments/ProcessFragment.js';
-import NetworkFragment from '../Fragments/NetworkFragment.js';
-import RandomFragment from '../Fragments/RandomFragment.js';
-import SequenceFragment from '../Fragments/SequenceFragment.js';
+import { SnowflakifyFragment } from '../@types';
+import Snowflakify, {
+  TimestampFragment,
+  WorkerFragment,
+  ProcessFragment,
+  NetworkFragment,
+  RandomFragment,
+  SequenceFragment,
+} from '../index.js';
 import CircularBuffer from './CircularBuffer.js';
 
 const { buffer, generatorOptions, isRefillingSAB } = workerData;
@@ -22,7 +23,7 @@ const fragmentProtypeMap: { [key: string]: any } = {
 
 Object.setPrototypeOf(buffer, CircularBuffer.prototype);
 
-// When passing a fragment array, the porotypes of the fragments must be set again,
+// When passing a fragment array, the prototypes of the fragments must be set again,
 // and the ID values for the workers, processes, and network must be updated to
 // reflect those of the workers that generated the snowflake IDs.
 if (generatorOptions?.fragmentArray) {
@@ -45,13 +46,15 @@ const isRefillingTa = new Int32Array(isRefillingSAB);
 const refillBuffer = () => {
   let isFull = false;
 
+  // There was an issue with while(true) which would cause
+  // one worker to block out all others...
+  // Will have to check again in the future
   while (!isFull) {
     try {
       buffer.push(snowflake.nextId());
     } catch (e) {
       Atomics.store(isRefillingTa, 0, 0);
       isFull = true;
-      break;
     }
   }
 };

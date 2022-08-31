@@ -1,6 +1,5 @@
 import process from 'node:process';
-import {
-  Snowflakify,
+import Snowflakify, {
   TimestampFragment,
   WorkerFragment,
   ProcessFragment,

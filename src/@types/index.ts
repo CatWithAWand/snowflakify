@@ -1,9 +1,11 @@
-import TimestampFragment from '../Fragments/TimestampFragment.js';
-import WorkerFragment from '../Fragments/WorkerFragment.js';
-import ProcessFragment from '../Fragments/ProcessFragment.js';
-import NetworkFragment from '../Fragments/NetworkFragment.js';
-import RandomFragment from '../Fragments/RandomFragment.js';
-import SequenceFragment from '../Fragments/SequenceFragment.js';
+import {
+  TimestampFragment,
+  WorkerFragment,
+  ProcessFragment,
+  NetworkFragment,
+  RandomFragment,
+  SequenceFragment,
+} from '../index.js';
 
 export type PredefinedPreset = 'worker_process' | 'ipv4' | 'mac';
 
@@ -15,7 +17,7 @@ export type SnowflakifyFragment =
   | RandomFragment
   | SequenceFragment;
 
-export type FragmentArray = Array<SnowflakifyFragment>;
+export type FragmentArray = SnowflakifyFragment[];
 
 export type SnowflakifyOptions = {
   epoch?: number;

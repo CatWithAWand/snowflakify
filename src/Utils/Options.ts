@@ -1,15 +1,17 @@
 import { FragmentArray, SnowflakifyOptions } from '../@types';
-import TimestampFragment from '../Fragments/TimestampFragment.js';
-import WorkerFragment from '../Fragments/WorkerFragment.js';
-import ProcessFragment from '../Fragments/ProcessFragment.js';
-import NetworkFragment from '../Fragments/NetworkFragment.js';
-import SequenceFragment from '../Fragments/SequenceFragment.js';
+import {
+  TimestampFragment,
+  WorkerFragment,
+  ProcessFragment,
+  NetworkFragment,
+  SequenceFragment,
+} from '../index.js';
 
 /**
  * Options class used to construct default Snowflakify instances.
  * @internal
  */
-export default class Options extends null {
+export default class Options {
   /**
    * @internal
    */

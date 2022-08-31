@@ -1,7 +1,6 @@
 import { isMainThread } from 'worker_threads';
 import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@types';
-import TimestampFragment from './Fragments/TimestampFragment.js';
-import SequenceFragment from './Fragments/SequenceFragment.js';
+import { TimestampFragment, SequenceFragment } from './index.js';
 import Options from './Utils/Options.js';
 import CircularBuffer from './CircularBuffer/CircularBuffer.js';
 
@@ -114,11 +113,15 @@ export default class Snowflakify {
    *
    * @returns An array of destructured fragments.
    *
-   * @throws SyntaxError if snowflake is not a hexadecimal number.
+   * @throws `[SNOWFLAKE_INVALID]` If snowflake is not a valid hexademical string.
    *
    * @public
    */
   destructureHex(snowflake: string): DestructuredFragment[] {
+    if (typeof snowflake !== 'string' || snowflake.match(/^[0-9A-Fa-f]+$/g))
+      throw new Error(
+        `[SNOWFLAKE_HEX_INVALID]: hex snowflake "${snowflake}" is invalid; Expected a valid hex string.`,
+      );
     const id = BigInt(`0x${snowflake}`);
     return this.destructure(id);
   }
@@ -126,12 +129,12 @@ export default class Snowflakify {
   /**
    * Returns the buffers content.
    *
-   * @returns An array of snowflake IDs.
+   * @returns An array of snowflake IDs or undefined if the buffer is not instatiated.
    *
    * @public
    */
-  getBuffer(): BigInt64Array {
-    return this.buffer.buffer;
+  getBuffer(): BigInt64Array | undefined {
+    return this.buffer?.buffer ?? undefined;
   }
 
   /**
@@ -140,10 +143,10 @@ export default class Snowflakify {
   private updateBitShiftsAndMasks(): void {
     let remainingBits = this.totalBits;
 
-    this.fragments.forEach((fragment) => {
+    for (const fragment of this.fragments) {
       remainingBits -= fragment.bits;
       fragment.setBitShiftAndBitMask(remainingBits);
-    });
+    }
   }
 
   /**

@@ -1,12 +1,23 @@
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { Worker } from 'worker_threads';
-import { SnowflakifyOptions } from 'src/@types';
+import { SnowflakifyOptions } from '../@types';
 import CircularBuffer from './CircularBuffer.js';
+
+const CLEANUP_EVENTS = [
+  'exit',
+  'uncaughtException',
+  'SIGINT',
+  'SIGQUIT',
+  'SIGUSR1',
+  'SIGUSR2',
+];
 
 export default class CircularBufferRefiller {
   private workers: Worker[] = [];
 
+  // We keep a reference to the SAB because we need
+  // to make it known to the workers as well
   private readonly isRefillingSAB: SharedArrayBuffer;
 
   private readonly isRefillingTa: Int32Array;
@@ -33,12 +44,21 @@ export default class CircularBufferRefiller {
       this.workers.push(this.createWorker());
     }
 
-    process.on('exit', () => this.cleanup());
-    process.on('uncaughtException', () => this.cleanup());
-    process.on('SIGINT', () => this.cleanup());
-    process.on('SIGQUIT', () => this.cleanup());
-    process.on('SIGUSR1', () => this.cleanup());
-    process.on('SIGUSR2', () => this.cleanup());
+    for (const event of CLEANUP_EVENTS) {
+      process.on(event, () => this.cleanup());
+    }
+  }
+
+  refill(): void {
+    Atomics.store(this.isRefillingTa, 0, 1);
+
+    for (const worker of this.workers) {
+      worker.postMessage('refill');
+    }
+  }
+
+  isRefilling(): boolean {
+    return Atomics.load(this.isRefillingTa, 0) === 1;
   }
 
   private createWorker(): Worker {
@@ -57,15 +77,8 @@ export default class CircularBufferRefiller {
   }
 
   private cleanup(): void {
-    this.workers.forEach((worker) => worker.terminate());
-  }
-
-  refill(): void {
-    Atomics.store(this.isRefillingTa, 0, 1);
-    this.workers.forEach((worker) => worker.postMessage('refill'));
-  }
-
-  isRefilling(): boolean {
-    return Atomics.load(this.isRefillingTa, 0) === 1;
+    for (const worker of this.workers) {
+      worker.terminate();
+    }
   }
 }

@@ -54,10 +54,6 @@ export default class TimestampFragment extends FragmentBase {
   private readonly nanoTimeAnchor: bigint;
 
   /**
-   * @remarks
-   * When using a custom random function, please ensure it returns a positive number
-   * no greater than `2 ** bits - 1`.
-   *
    * @param bits - The number of bits for the fragment.
    * @param epoch - A custom epoch timestamp.
    *
@@ -119,7 +115,7 @@ export default class TimestampFragment extends FragmentBase {
 
   getValue(): bigint {
     this.value = this.unixNow();
-    // Cannot detect clock drift when using hrtime.bigint()
+    // hrtime is not subject to clock drift
     // this.checkForClockDrift();
     if (this.sequenceFragmentRef) this.checkForSequenceCollision();
     this.lastTimestamp = this.value;

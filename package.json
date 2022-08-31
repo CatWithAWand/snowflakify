@@ -1,6 +1,6 @@
 {
   "name": "snowflakify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The most complete Snowflake ID generator in TypeScript",
   "license": "MIT",
   "author": {
@@ -52,6 +52,7 @@
     "start": "node dist/index.js",
     "lint": "prettier --check . && eslint src/**/*.ts",
     "format": "prettier --write . && eslint src/**/*.ts --fix",
+    "clean": "rm -rf ./dist/",
     "build": "tsc",
     "docs": "typedoc --excludeExternals --out docs src/**/*.ts && prettier --write docs",
     "dev": "nodemon dist/index.js",

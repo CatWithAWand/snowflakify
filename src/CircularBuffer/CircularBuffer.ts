@@ -1,4 +1,4 @@
-import { SnowflakifyOptions } from 'src/@types';
+import { SnowflakifyOptions } from '../@types';
 import { isPowerOfTwo } from '../Utils/Util.js';
 import CircularBufferRefiller from './CircularBufferRefiller.js';
 
@@ -7,11 +7,11 @@ export default class CircularBuffer {
 
   private readonly thresholdIndex: number;
 
-  private readonly tailSAB: SharedArrayBuffer;
+  // private readonly tailSAB: SharedArrayBuffer;
 
-  private readonly headSAB: SharedArrayBuffer;
+  // private readonly headSAB: SharedArrayBuffer;
 
-  private readonly bufferSAB: SharedArrayBuffer;
+  // private readonly bufferSAB: SharedArrayBuffer;
 
   private readonly tailTA: Int32Array;
 
@@ -21,10 +21,10 @@ export default class CircularBuffer {
 
   private readonly bufferRefiller: CircularBufferRefiller;
 
-  private readonly semaphore: Int32Array;
+  private readonly semaphoreTA: Int32Array;
 
   constructor(
-    private readonly bufferSize: number = 2 ** 23,
+    private readonly bufferSize: number = 1 << 23,
     generatorOptions: SnowflakifyOptions,
     refillTheshold: number = 0.5,
     workerCount: number = 2,
@@ -52,23 +52,23 @@ export default class CircularBuffer {
     this.indexBitMask = this.bufferSize - 1;
     this.thresholdIndex = Math.floor((this.bufferSize - 1) * refillTheshold);
 
-    this.tailSAB = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
-    this.headSAB = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
-    this.bufferSAB = new SharedArrayBuffer(
-      BigInt64Array.BYTES_PER_ELEMENT * this.bufferSize,
+    this.tailTA = new Int32Array(
+      new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT),
     );
-
-    this.tailTA = new Int32Array(this.tailSAB);
-    this.headTA = new Int32Array(this.headSAB);
-    this.bufferTA = new BigInt64Array(this.bufferSAB);
+    this.headTA = new Int32Array(
+      new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT),
+    );
+    this.bufferTA = new BigInt64Array(
+      new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * this.bufferSize),
+    );
 
     this.tail = -1;
     this.head = -1;
 
-    this.semaphore = new Int32Array(
+    this.semaphoreTA = new Int32Array(
       new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT),
     );
-    Atomics.store(this.semaphore, 0, 1);
+    Atomics.store(this.semaphoreTA, 0, 1);
 
     this.bufferRefiller = new CircularBufferRefiller(
       this,
@@ -173,14 +173,13 @@ export default class CircularBuffer {
     return index & this.indexBitMask;
   }
 
-  private acquire(): boolean {
-    Atomics.wait(this.semaphore, 0, 0);
-    Atomics.sub(this.semaphore, 0, 1);
-    return true;
+  private acquire(): void {
+    Atomics.wait(this.semaphoreTA, 0, 0);
+    Atomics.sub(this.semaphoreTA, 0, 1);
   }
 
   private release(): void {
-    Atomics.add(this.semaphore, 0, 1);
-    Atomics.notify(this.semaphore, 0, 1);
+    Atomics.add(this.semaphoreTA, 0, 1);
+    Atomics.notify(this.semaphoreTA, 0, 1);
   }
 }

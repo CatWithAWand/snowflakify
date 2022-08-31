@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-export { default as Snowflakify } from './Snowflakify.js';
+export { default } from './Snowflakify.js';
 export { default as TimestampFragment } from './Fragments/TimestampFragment.js';
 export { default as WorkerFragment } from './Fragments/WorkerFragment.js';
 export { default as ProcessFragment } from './Fragments/ProcessFragment.js';

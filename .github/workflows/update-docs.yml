@@ -1,0 +1,29 @@
+name: update-docs
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v3.4.1
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Generate docs
+      - run: npm ci
+      - run: npm run build
+      - run: npm run docs
+      - run: npm run format
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Updated documentation" -a
+      - name: Push docs
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
