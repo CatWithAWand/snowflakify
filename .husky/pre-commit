@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# update package-lock, needed for ci
+npm i --package-lock-only
 npm run clean
 npm run build
 npm run format
