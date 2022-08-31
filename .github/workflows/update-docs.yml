@@ -1,7 +1,11 @@
 name: update-docs
+<<<<<<< HEAD
 on:
   release:
     types: [created]
+=======
+on: [push]
+>>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +18,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
+<<<<<<< HEAD
       - run: npm ci
       - run: |
           npm run build
@@ -27,4 +32,20 @@ jobs:
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.WORKFLOW_TOKEN }}
+=======
+      - name: Generate docs
+      - run: npm ci
+      - run: npm run build
+      - run: npm run docs
+      - run: npm run format
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Updated documentation" -a
+      - name: Push docs
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+>>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
           branch: ${{ github.ref }}

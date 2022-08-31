@@ -12,9 +12,14 @@ jobs:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+<<<<<<< HEAD
       - run: |
           npm run build
           npm run format
+=======
+      - run: npm run build
+      - run: npm run format
+>>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
       # when test are executed inside github actions
       # jest tries to import the package as a CJS module
       # - run: npm run test
