@@ -52,13 +52,17 @@ jobs:
       - run: |
           npm run build
           npm run docs
-          npm run format 
+          npm run format
       - run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Updated documentation" -a
       - uses: ad-m/github-push-action@master
         with:
+<<<<<<< HEAD
           github_token: ${{ secrets.GITHUB_TOKEN }}
 >>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
+=======
+          github_token: ${{ secrets.WORKFLOW_TOKEN }}
+>>>>>>> 17787a3 (ci(update-docs action): changed to token with workflows permissions)
           branch: ${{ github.ref }}
