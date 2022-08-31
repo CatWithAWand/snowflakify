@@ -1,16 +1,20 @@
 name: update-docs
 <<<<<<< HEAD
+<<<<<<< HEAD
 on:
   release:
     types: [created]
 =======
 on: [push]
 >>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
+=======
+on: push
+>>>>>>> 797fdd4 (ci(update-docs action): downgraded checkout action used to v2)
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           persist-credentials: false
           fetch-depth: 0
