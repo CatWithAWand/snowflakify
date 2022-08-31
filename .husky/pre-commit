@@ -12,6 +12,7 @@ npm run format
 # npm run test
 =======
 npm run clean
+npm run build
 npm run format
 npm run test
 >>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
