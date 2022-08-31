@@ -2,5 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run clean
+npm run build
 npm run format
 npm run test
