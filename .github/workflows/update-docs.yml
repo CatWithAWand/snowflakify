@@ -24,6 +24,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       - run: npm ci
       - run: |
           npm run build
@@ -41,6 +42,9 @@ jobs:
       - name: Generate docs
 =======
 >>>>>>> ee53355 (ci(update-docs action): removed names and added additional dash '-' to last uses)
+=======
+      - run: npm i --package-lock-only
+>>>>>>> 688ab86 (ci(ci running tests): disabled tests at ci for now due to possible jest issue)
       - run: npm ci
       - run: npm run build
       - run: npm run docs
