@@ -1,6 +1,7 @@
 name: update-docs
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 on:
   release:
     types: [created]
@@ -10,6 +11,11 @@ on: [push]
 =======
 on: push
 >>>>>>> 797fdd4 (ci(update-docs action): downgraded checkout action used to v2)
+=======
+on:
+  release:
+    types: [created]
+>>>>>>> c86e979 (ci(update-docs action): change on triggers to update docs only at release creation)
 jobs:
   build:
     runs-on: ubuntu-latest
