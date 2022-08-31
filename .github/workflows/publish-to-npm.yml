@@ -11,8 +11,8 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm i --package-lock-only
       - run: npm ci
+<<<<<<< HEAD
 <<<<<<< HEAD
       - run: |
           npm run build
@@ -21,6 +21,11 @@ jobs:
       - run: npm run build
       - run: npm run format
 >>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
+=======
+      - run: |
+          npm run build
+          npm run format
+>>>>>>> 28cccc3 (ci(all actions): removed package-lock update from ci, added it to pre-commit)
       # when test are executed inside github actions
       # jest tries to import the package as a CJS module
       # - run: npm run test

@@ -2,6 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 28cccc3 (ci(all actions): removed package-lock update from ci, added it to pre-commit)
 # update package-lock, needed for ci
 npm i --package-lock-only
 npm run clean
