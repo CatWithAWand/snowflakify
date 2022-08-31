@@ -16,12 +16,12 @@ jobs:
       - run: |
           npm run build
           npm run docs
-          npm run format 
+          npm run format
       - run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Updated documentation" -a
       - uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.WORKFLOW_TOKEN }}
           branch: ${{ github.ref }}
