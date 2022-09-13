@@ -1,4 +1,4 @@
-name: Publish package to npmjs
+name: publish-to-npm
 on:
   release:
     types: [created]
@@ -11,11 +11,13 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      - run: npm run build
-      - run: npm run format
-      # - run: npm run test
       - run: npm ci
+      - run: |
+          npm run build
+          npm run format
+      # when test are executed inside github actions
+      # jest tries to import the package as a CJS module
+      # - run: npm run test
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

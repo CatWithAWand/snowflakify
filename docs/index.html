@@ -239,6 +239,9 @@
           <p>Destructuring a snowflake ID</p>
           <pre><code class="language-js"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">snowflakeId</span><span class="hl-0"> = </span><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">nextId</span><span class="hl-0">();</span><br/><span class="hl-4">// 1000920566716264449n</span><br/><br/><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">destructure</span><span class="hl-0">(</span><span class="hl-2">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-4">// [</span><br/><span class="hl-4">//   { identifier: &#39;TimestampFragment&#39;, value: 1658708459310n },</span><br/><span class="hl-4">//   { identifier: &#39;WorkerFragment&#39;, value: 0 },</span><br/><span class="hl-4">//   { identifier: &#39;ProcessFragment&#39;, value: 23 },</span><br/><span class="hl-4">//   { identifier: &#39;SequenceFragment&#39;, value: 1 }</span><br/><span class="hl-4">// ]</span>
 </code></pre>
+          <p>Hexadecimal snowflake ID</p>
+          <pre><code class="language-js"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">id</span><span class="hl-0"> = </span><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">nextHexId</span><span class="hl-0">();</span><br/><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">destructureHex</span><span class="hl-0">(</span><span class="hl-2">id</span><span class="hl-0">);</span>
+</code></pre>
           <p>Creating a custom snowflake structure</p>
           <pre><code class="language-js"><span class="hl-1">import</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">Snowflakify</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">TimestampFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">NetworkFragment</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">SequenceFragment</span><span class="hl-0">,</span><br/><span class="hl-0">} </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;snowflakify&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">CUSTOM_EPOCH</span><span class="hl-0"> = </span><span class="hl-8">1262304001000</span><span class="hl-0">;</span><br/><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">snowflakify</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">Snowflakify</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">fragmentArray:</span><span class="hl-0"> [</span><br/><span class="hl-0">    </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">TimestampFragment</span><span class="hl-0">(</span><span class="hl-8">42</span><span class="hl-0">, </span><span class="hl-6">CUSTOM_EPOCH</span><span class="hl-0">),</span><br/><span class="hl-0">    </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">NetworkFragment</span><span class="hl-0">(</span><span class="hl-8">10</span><span class="hl-0">, </span><span class="hl-3">&#39;ipv4&#39;</span><span class="hl-0">),</span><br/><span class="hl-0">    </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">SequenceFragment</span><span class="hl-0">(</span><span class="hl-8">12</span><span class="hl-0">),</span><br/><span class="hl-0">  ],</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">snowflakeId</span><span class="hl-0"> = </span><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">nextId</span><span class="hl-0">();</span><br/><span class="hl-4">// 1662643509670989825n</span><br/><br/><span class="hl-2">snowflakify</span><span class="hl-0">.</span><span class="hl-7">destructure</span><span class="hl-0">(</span><span class="hl-2">snowflakeId</span><span class="hl-0">);</span><br/><span class="hl-4">// [</span><br/><span class="hl-4">//   { identifier: &#39;TimestampFragment&#39;, value: 1658709104128n },</span><br/><span class="hl-4">//   { identifier: &#39;NetworkFragment:ipv4&#39;, value: 197 },</span><br/><span class="hl-4">//   { identifier: &#39;SequenceFragment&#39;, value: 1 }</span><br/><span class="hl-4">// ]</span>
 </code></pre>
@@ -472,9 +475,6 @@
                       >
                     </li>
                     <li class="tsd-kind-module">
-                      <a href="modules/FragmentBase.html">Fragment<wbr />Base</a>
-                    </li>
-                    <li class="tsd-kind-module">
                       <a href="modules/Fragments_NetworkFragment.html"
                         >Fragments/<wbr />Network<wbr />Fragment</a
                       >
@@ -505,16 +505,10 @@
                       >
                     </li>
                     <li class="tsd-kind-module">
-                      <a href="modules/Snowflakify.html">Snowflakify</a>
-                    </li>
-                    <li class="tsd-kind-module">
                       <a href="modules/Utils_Options.html">Utils/<wbr />Options</a>
                     </li>
                     <li class="tsd-kind-module">
                       <a href="modules/Utils_Util.html">Utils/<wbr />Util</a>
-                    </li>
-                    <li class="tsd-kind-module">
-                      <a href="modules/index.html">index</a>
                     </li>
                   </ul>
                 </li>

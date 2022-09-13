@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn docs
-yarn format
-yarn test
+# update package-lock, needed for ci
+npm i --package-lock-only
+npm run clean
+npm run build
+npm run format
+# disabled for now due to github actions issue with
+# jest trying to import the package as a CMJ module
+# npm run test
