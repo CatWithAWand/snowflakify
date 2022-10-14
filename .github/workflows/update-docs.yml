@@ -1,21 +1,7 @@
 name: update-docs
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 on:
   release:
     types: [created]
-=======
-on: [push]
->>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
-=======
-on: push
->>>>>>> 797fdd4 (ci(update-docs action): downgraded checkout action used to v2)
-=======
-on:
-  release:
-    types: [created]
->>>>>>> c86e979 (ci(update-docs action): change on triggers to update docs only at release creation)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,10 +14,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+      - run: chmod +x ./build.sh
       - run: npm ci
       - run: |
           npm run build
@@ -45,31 +28,4 @@ jobs:
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.WORKFLOW_TOKEN }}
-=======
-      - name: Generate docs
-=======
->>>>>>> ee53355 (ci(update-docs action): removed names and added additional dash '-' to last uses)
-=======
-      - run: npm i --package-lock-only
->>>>>>> 688ab86 (ci(ci running tests): disabled tests at ci for now due to possible jest issue)
-=======
->>>>>>> 28cccc3 (ci(all actions): removed package-lock update from ci, added it to pre-commit)
-      - run: npm ci
-      - run: |
-          npm run build
-          npm run docs
-          npm run format
-      - run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Updated documentation" -a
-      - uses: ad-m/github-push-action@master
-        with:
-<<<<<<< HEAD
-          github_token: ${{ secrets.GITHUB_TOKEN }}
->>>>>>> 5729caf (refactor(global): some code refactoring, added default export, docs updated by gh actions only now)
-=======
-          github_token: ${{ secrets.WORKFLOW_TOKEN }}
->>>>>>> 17787a3 (ci(update-docs action): changed to token with workflows permissions)
           branch: ${{ github.ref }}

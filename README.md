@@ -79,7 +79,7 @@ $ pnpm add snowflakify
 Creating a new Snowflakify ID generator
 
 ```js
-import { Snowflakify } from 'snowflakify';
+import Snowflakify from 'snowflakify';
 
 // with default options
 const snowflakify = new Snowflakify();
@@ -121,8 +121,7 @@ snowflakify.destructureHex(id);
 Creating a custom snowflake structure
 
 ```js
-import {
-  Snowflakify,
+import Snowflakify, {
   TimestampFragment,
   NetworkFragment,
   SequenceFragment,
@@ -178,7 +177,7 @@ worker.js
 
 ```js
 import { parentPort } from 'worker_threads';
-import { Snowflakify } from 'snowflakify';
+import Snowflakify from 'snowflakify';
 
 const snowflakify = new Snowflakify();
 
@@ -238,7 +237,7 @@ index.js
 
 ```js
 import cluster from 'node:cluster';
-import { Snowflakify } from 'snowflakify';
+import Snowflakify from 'snowflakify';
 
 const numWorkers = 3;
 
@@ -297,7 +296,12 @@ Worker 3 generated snowflake:
 ## Using the Circular/Ring Buffer
 
 ```js
-import { Snowflakify } from 'snowflakify';
+import Snowflakify, {
+  TimestampFragment,
+  WorkerFragment,
+  ProcessFragment,
+  SequenceFragment,
+} from 'snowflakify';
 
 const CUSTOM_EPOCH = 1262304001000;
 

@@ -1,6 +1,6 @@
 {
   "name": "snowflakify",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The most complete Snowflake ID generator in TypeScript",
   "license": "MIT",
   "author": {
@@ -23,11 +23,12 @@
     "discord",
     "typescript"
   ],
-  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
     }
   },
   "directories": {
@@ -35,10 +36,6 @@
     "test": "test",
     "doc": "docs"
   },
-  "files": [
-    "dist",
-    "dist/@types"
-  ],
   "engines": {
     "node": ">=14.5.0"
   },
@@ -47,13 +44,12 @@
     "prepare": "husky install",
     "cm": "cz",
     "cm:s": "cz -S",
-    "test": "node --experimental-vm-modules $(yarn bin jest)",
+    "test": "jest",
     "watch": "tsc -w",
     "start": "node dist/index.js",
     "lint": "prettier --check . && eslint src/**/*.ts",
     "format": "prettier --write . && eslint src/**/*.ts --fix",
-    "clean": "rm -rf ./dist/",
-    "build": "tsc",
+    "build": "./build.sh",
     "docs": "typedoc --excludeExternals --out docs src/**/*.ts && prettier --write docs",
     "dev": "nodemon dist/index.js",
     "dev:ts": "ts-node src/index.ts"

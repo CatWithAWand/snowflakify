@@ -7,12 +7,6 @@ export default class CircularBuffer {
 
   private readonly thresholdIndex: number;
 
-  // private readonly tailSAB: SharedArrayBuffer;
-
-  // private readonly headSAB: SharedArrayBuffer;
-
-  // private readonly bufferSAB: SharedArrayBuffer;
-
   private readonly tailTA: Int32Array;
 
   private readonly headTA: Int32Array;
