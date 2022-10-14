@@ -23,8 +23,8 @@
     "discord",
     "typescript"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
   "exports": {
     ".": {
       "import": "./dist/mjs/index.js",
