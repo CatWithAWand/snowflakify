@@ -1,9 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# delete local docs directory the reason we do not .gitignore the
+# directory is because the github action wont be able to push them then
+rm -rf ./docs
 # update package-lock, needed for ci
+chmod +x ./build.sh
 npm i --package-lock-only
-npm run clean
 npm run build
 npm run format
 # disabled for now due to github actions issue with

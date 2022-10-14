@@ -6,7 +6,7 @@ import Snowflakify, {
   NetworkFragment,
   RandomFragment,
   SequenceFragment,
-} from '../dist';
+} from '../dist/cjs';
 
 const snowflakify = new Snowflakify();
 
@@ -46,7 +46,7 @@ test('snowflake generation', () => {
   const snowflake = snowflakify.nextId();
 
   expect(typeof snowflake).toBe('bigint');
-  expect(snowflake).toBeGreaterThan(0n);
+  expect(snowflake).toBeGreaterThan(BigInt(0));
   expect(snowflake.toString().length).toBe(19);
 });
 
@@ -79,7 +79,7 @@ test('destructure of valid snowflake', () => {
 });
 
 test('destructure of invalid snowflake throws', () => {
-  expect(() => snowflakify.destructure(-1n)).toThrow();
+  expect(() => snowflakify.destructure(BigInt(-1))).toThrow();
   expect(() => snowflakify.destructure('1000000000000n')).toThrow();
   expect(() => snowflakify.destructure('abcedfu')).toThrow();
 });
@@ -90,13 +90,13 @@ test('proper TimestampFragment instantiation', () => {
   timestampFragment.setBitShiftAndBitMask(22);
 
   expect(timestampFragment.bits).toBe(42);
-  expect(timestampFragment.maxValue).toBe(4398046511103n);
+  expect(timestampFragment.maxValue).toBe(BigInt(4398046511103));
   // @ts-ignore
   expect(timestampFragment.timeUnit).toBe(1000000n);
   // @ts-ignore
-  expect(timestampFragment.epoch).toBe(1420070400000n);
-  expect(timestampFragment.bitShift).toBe(22n);
-  expect(timestampFragment.bitMask).toBe(18446744073705357312n);
+  expect(timestampFragment.epoch).toBe(BigInt(1420070400000));
+  expect(timestampFragment.bitShift).toBe(BigInt(22));
+  expect(timestampFragment.bitMask).toBe(BigInt(18446744073705357312));
   expect(timestampFragment.bitMaskHex).toBe('0xffffffffffc00000');
 });
 

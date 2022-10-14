@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "ESNext.asynciterable"],
+    "allowJs": true,
+    "sourceMap": true,
+    "newLine": "lf",
+    "moduleResolution": "node",
+    "removeComments": false,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "skipLibCheck": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+
+    "declaration": true,
+
+    "pretty": false,
+    "skipDefaultLibCheck": true,
+
+    "types": ["jest", "node"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+}
