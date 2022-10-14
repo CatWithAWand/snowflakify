@@ -9,6 +9,7 @@ chmod +x ./build.sh
 npm i --package-lock-only
 npm run build
 npm run format
+npm run test
 # disabled for now due to github actions issue with
 # jest trying to import the package as a CMJ module
 # npm run test

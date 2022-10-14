@@ -16,9 +16,7 @@ jobs:
       - run: |
           npm run build
           npm run format
-      # when test are executed inside github actions
-      # jest tries to import the package as a CJS module
-      # - run: npm run test
+      - run: npm run test
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
