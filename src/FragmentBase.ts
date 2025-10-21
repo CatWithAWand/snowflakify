@@ -57,7 +57,7 @@ export default abstract class FragmentBase {
       );
 
     this.value = BigInt(0);
-    this.maxValue = BigInt(2 ** bits) - BigInt(1);
+    this.maxValue = (BigInt(1) << BigInt(bits)) - BigInt(1);
 
     this.identifier = this.constructor.name;
   }
