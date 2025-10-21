@@ -161,6 +161,26 @@ test('improper SequenceFragment instantiation throws', () => {
   expect(() => new SequenceFragment(0)).toThrow();
 });
 
-test.todo(
-  'implement tests for RandomFragment default and custom function randomness',
+test.each([5, 8, 16, 48, 63, 64, 128, 65537])(
+  'RandomFragment values with default function (%i-bits)',
+  (bits) => {
+    const fragment = new RandomFragment(bits);
+    const val = fragment.getValue();
+
+    expect(val).toBeGreaterThanOrEqual(0n);
+    expect(val).toBeLessThan(1n << BigInt(bits));
+    // Check that most significant digit can be 1.
+    // Random numbers are inconsistent, we need enough iterations to be reasonably sure.
+    expect(
+      [...Array(20)].some(
+        (): boolean => fragment.getValue() >> BigInt(bits - 1) > 0n,
+      ),
+    ).toBe(true);
+  },
 );
+
+test('RandomFragment values with custom function', () => {
+  expect(() => new RandomFragment(8, () => -1).getValue()).toThrow(TypeError);
+  expect(() => new RandomFragment(8, () => 257).getValue()).toThrow(TypeError);
+  expect(new RandomFragment(8, () => 4).getValue()).toBe(4n);
+});
