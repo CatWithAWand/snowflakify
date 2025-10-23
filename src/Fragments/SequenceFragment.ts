@@ -1,5 +1,5 @@
 import FragmentBase from '../FragmentBase.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 /**
  * SequenceFragment class for sequence (increment/counter) IDs.

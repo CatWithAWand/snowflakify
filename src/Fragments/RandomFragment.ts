@@ -1,6 +1,6 @@
 import { randomInt } from 'crypto';
 import FragmentBase from '../FragmentBase.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 /**
  * RandomFragment class for random IDs.
