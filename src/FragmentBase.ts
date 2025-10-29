@@ -1,4 +1,4 @@
-import { DestructuredFragment } from './@types';
+import { DestructuredFragment } from './@types/index.js';
 
 /**
  * Base class for fragments.

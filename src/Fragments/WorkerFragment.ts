@@ -1,7 +1,7 @@
 import { isMainThread, threadId } from 'worker_threads';
 import cluster from 'cluster';
 import FragmentBase from '../FragmentBase.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 /**
  * WorkerFragment class for worker IDs.

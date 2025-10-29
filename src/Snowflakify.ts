@@ -1,5 +1,9 @@
 import { isMainThread } from 'worker_threads';
-import { FragmentArray, SnowflakifyOptions, DestructuredFragment } from './@types';
+import {
+  FragmentArray,
+  SnowflakifyOptions,
+  DestructuredFragment,
+} from './@types/index.js';
 import { TimestampFragment, SequenceFragment } from './index.js';
 import Options from './Utils/Options.js';
 import CircularBuffer from './CircularBuffer/CircularBuffer.js';

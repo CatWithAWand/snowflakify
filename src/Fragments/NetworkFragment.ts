@@ -1,6 +1,6 @@
 import FragmentBase from '../FragmentBase.js';
 import { getIPv4Address, getMacAddress } from '../Utils/Util.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 /**
  * NetworkFragment class for network IDs.

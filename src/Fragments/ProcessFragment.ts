@@ -1,6 +1,6 @@
 import process from 'process';
 import FragmentBase from '../FragmentBase.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 /**
  * ProcessFragment class for process IDs.

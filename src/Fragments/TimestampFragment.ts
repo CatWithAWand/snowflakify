@@ -1,7 +1,7 @@
 import { hrtime } from 'process';
 import FragmentBase from '../FragmentBase.js';
 import SequenceFragment from './SequenceFragment.js';
-import { DestructuredFragment } from '../@types';
+import { DestructuredFragment } from '../@types/index.js';
 
 const DEFAULT_EPOCH = 1420070400000;
 
