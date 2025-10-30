@@ -96,7 +96,7 @@ test('proper TimestampFragment instantiation', () => {
   // @ts-ignore
   expect(timestampFragment.epoch).toBe(BigInt(1420070400000));
   expect(timestampFragment.bitShift).toBe(BigInt(22));
-  expect(timestampFragment.bitMask).toBe(BigInt(18446744073705357312n));
+  expect(timestampFragment.bitMask).toBe(18446744073705357312n);
   expect(timestampFragment.bitMaskHex).toBe('0xffffffffffc00000');
 
   expect(new TimestampFragment(1025).maxValue).toBe(

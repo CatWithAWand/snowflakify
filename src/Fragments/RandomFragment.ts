@@ -43,16 +43,16 @@ export default class RandomFragment extends FragmentBase {
       return rndNum;
     }
 
-    if (this.bits <= 48)
-      return BigInt(randomInt(0, Number((1n << BigInt(this.bits)) - 1n)));
+    if (this.bits <= 47)
+      return BigInt(randomInt(0, Number(1n << BigInt(this.bits))));
 
-    // 48 bit parts due to randomInt range limitation
+    // 47 bit parts due to randomInt range limitation
     // max param limit of Number.MAX_SAFE_INTEGER
     let rndNum = BigInt(0);
-    for (let i = 0; i < this.bits; i += 48) {
-      rndNum +=
+    for (let i = 0; i < this.bits; i += 47) {
+      rndNum |=
         BigInt(
-          randomInt(0, Number((1n << BigInt(Math.min(this.bits - i, 48))) - 1n)),
+          randomInt(0, Number(1n << BigInt(Math.min(this.bits - i, 47)))),
         ) << BigInt(i);
     }
 
