@@ -15,7 +15,7 @@ export default class RandomFragment extends FragmentBase {
    * @param bits - The number of bits for the fragment.
    * @param fn - Optional custom random function.
    *
-   * @throws `[RND_FUNCTION_RETURN_TYPE]` If custom function does not return number or bigint.
+   * @throws `[RND_FUNCTION_RETURN_TYPE]` If custom function does not return number or bigint, or if the value is out of range.
    */
   constructor(bits: number, private readonly fn?: () => number | bigint) {
     super(bits);
@@ -37,7 +37,7 @@ export default class RandomFragment extends FragmentBase {
 
       if (rndNum >= 1n << BigInt(this.bits))
         throw new TypeError(
-          `[RND_FUNCTION_BAD_RETURN]: RandomFragment custom function returned a value bigger than 2 ** ${this.bits} - 1.`,
+          `[RND_FUNCTION_BAD_RETURN]: RandomFragment custom function returned a value bigger than (2 ** ${this.bits}) - 1.`,
         );
 
       return rndNum;
@@ -51,9 +51,8 @@ export default class RandomFragment extends FragmentBase {
     let rndNum = BigInt(0);
     for (let i = 0; i < this.bits; i += 47) {
       rndNum |=
-        BigInt(
-          randomInt(0, Number(1n << BigInt(Math.min(this.bits - i, 47)))),
-        ) << BigInt(i);
+        BigInt(randomInt(0, Number(1n << BigInt(Math.min(this.bits - i, 47))))) <<
+        BigInt(i);
     }
 
     return rndNum;
