@@ -1,6 +1,6 @@
 {
   "name": "snowflakify",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "The most complete Snowflake ID generator in TypeScript",
   "license": "MIT",
   "author": {
