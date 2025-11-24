@@ -50,7 +50,7 @@
     "lint": "prettier --check . && eslint src/**/*.ts",
     "format": "prettier --write . && eslint src/**/*.ts --fix",
     "build": "./build.sh",
-    "docs": "typedoc --excludeExternals --out docs src/**/*.ts && prettier --write docs",
+    "docs": "typedoc --excludeExternals --out docs src/**/*.ts",
     "dev": "nodemon dist/index.js",
     "dev:ts": "ts-node src/index.ts"
   },
