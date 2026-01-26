@@ -14,4 +14,4 @@ export { default as NetworkFragment } from './Fragments/NetworkFragment.js';
 export { default as RandomFragment } from './Fragments/RandomFragment.js';
 export { default as SequenceFragment } from './Fragments/SequenceFragment.js';
 export { default as FragmentBase } from './FragmentBase.js';
-export * from './@types/index.js';
+export type * from './@types/index.js';
